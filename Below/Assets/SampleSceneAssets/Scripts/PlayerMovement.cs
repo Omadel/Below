@@ -2,12 +2,12 @@
 using UnityEngine.InputSystem;
 #endif
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
+    [SerializeField] private InputActionReference movementInput;
+    [SerializeField] private float interpolationTime = .4f;
+    private Vector3 targetPosition;
 
     public CharacterController controller;
 
@@ -16,19 +16,17 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 2f;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundCheckRadius = 0.4f;
     public LayerMask groundMask;
-    
+    private Vector3 velocity;
+    private bool isGrounded;
 
-    Vector3 velocity;
-    bool isGrounded;
+    private InputAction movement;
+    private InputAction jump;
 
-#if ENABLE_INPUT_SYSTEM
-    InputAction movement;
-    InputAction jump;
+    private void Start() {
+        targetPosition = transform.position;
 
-    void Start()
-    {
         movement = new InputAction("PlayerMovement", binding: "<Gamepad>/leftStick");
         movement.AddCompositeBinding("Dpad")
             .With("Up", "<Keyboard>/w")
@@ -39,51 +37,45 @@ public class PlayerMovement : MonoBehaviour
             .With("Left", "<Keyboard>/leftArrow")
             .With("Right", "<Keyboard>/d")
             .With("Right", "<Keyboard>/rightArrow");
-        
+
         jump = new InputAction("PlayerJump", binding: "<Gamepad>/a");
         jump.AddBinding("<Keyboard>/space");
 
         movement.Enable();
         jump.Enable();
     }
-#endif
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void OnEnable() {
+        movementInput.action.Enable();
+    }
+
+    private void Update() {
         float x;
         float z;
         bool jumpPressed = false;
-
-#if ENABLE_INPUT_SYSTEM
-        var delta = movement.ReadValue<Vector2>();
+        Vector2 delta = movementInput.action.ReadValue<Vector2>();
         x = delta.x;
         z = delta.y;
+        Debug.Log(delta);
         jumpPressed = Mathf.Approximately(jump.ReadValue<float>(), 1);
-#else
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
-        jumpPressed = Input.GetButtonDown("Jump");
-#endif
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
 
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+        //if(isGrounded && velocity.y < 0) {
+        //    velocity.y = -2f;
+        //}
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        targetPosition = transform.right * x + transform.forward * z;
+        //transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * interpolationTime);
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(targetPosition * speed * Time.deltaTime);
 
-        if(jumpPressed && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        //if(jumpPressed && isGrounded) {
+        //    velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        //}
 
-        velocity.y += gravity * Time.deltaTime;
+        //velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+        //controller.Move(velocity * Time.deltaTime);
     }
 }
