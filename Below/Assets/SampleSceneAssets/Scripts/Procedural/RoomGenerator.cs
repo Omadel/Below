@@ -25,7 +25,7 @@ public class RoomGenerator : MonoBehaviour
         {
             DestroyImmediate(section.gameObject);
         }
-        GameObject b=Instantiate(variants[index].variant);
+        GameObject b=Instantiate(variants[index].variant.gameObject);
         b.transform.parent =transform;
         b.transform.position =Vector3.zero;
         section = b;
@@ -38,6 +38,6 @@ public class RoomGenerator : MonoBehaviour
 [System.Serializable]
 struct RoomVariants
 {
-    public GameObject variant;
+    public RoomVariant variant;
     public bool isActive;
 }
