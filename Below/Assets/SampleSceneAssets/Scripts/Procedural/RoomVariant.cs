@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class RoomVariant : MonoBehaviour
 {
+    [SerializeField]
     RoomGenerator BaseRoom;
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireMesh(BaseRoom.gameObject.GetComponent<MeshFilter>().mesh,transform.position);
+        if (BaseRoom != null)
+        {
+            Gizmos.DrawWireMesh(BaseRoom.gameObject.GetComponent<MeshFilter>().mesh, transform.position);
+        }
     }
 }

@@ -13,10 +13,24 @@ public class EditorRoomGenerator : Editor
         RoomGenerator room = (RoomGenerator)target;
 
         base.OnInspectorGUI();
-        if(GUILayout.Button("UpdateRoom"))
+        EditorGUILayout.LabelField("Selected room",room.roomSelection);
+        if (GUILayout.Button("Random room",GUILayout.Width(150)))
         {
-            room.UpdateRoom();
+            room.ClearRoom();
+            room.roomSelection = "Random room";
         }
-        
+        List<string> tools = new List<string>();
+        for (int i = 0; i < room.variants.Length; i++)
+        {
+            if (GUILayout.Button("Select room "+(i+1).ToString(),GUILayout.Width(150)))
+            {
+                room.ResetBool(i);
+                room.UpdateRoom();
+                room.roomSelection = "room " + (1 + i) ;
+            }
+
+        }
+
+
     }
 }
