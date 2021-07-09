@@ -10,7 +10,7 @@ public class RoomVariant : MonoBehaviour
     {
         if (BaseRoom != null)
         {
-            Gizmos.DrawWireMesh(BaseRoom.gameObject.GetComponent<MeshFilter>().mesh, transform.position);
+           // Gizmos.DrawWireMesh(BaseRoom.gameObject.GetComponent<MeshFilter>().mesh, transform.position);
         }
     }
 }
