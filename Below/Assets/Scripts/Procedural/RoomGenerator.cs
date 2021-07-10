@@ -13,7 +13,7 @@ public class RoomGenerator : MonoBehaviour
 
     public void Start()
     {
-       if(RandomCheck());
+       if(RandomCheck()&&Application.isEditor==false);
         {
             RandomPick();
         }
@@ -70,7 +70,8 @@ public class RoomGenerator : MonoBehaviour
         }
         GameObject b=Instantiate(variants[index].variant.gameObject);
         b.transform.parent =transform;
-        b.transform.position =Vector3.zero;
+        b.transform.position =transform.position;
+        b.transform.rotation=transform.rotation;
         section = b;
     }
     public void ResetBool(int index)
