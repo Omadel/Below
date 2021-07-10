@@ -2,68 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+
 public class RoomGenerator : MonoBehaviour
 {
     [SerializeField]
     public RoomVariants[] variants;
-    GameObject section;
-    [HideInInspector]
-    public string roomSelection = "Random room";
+    [SerializeField]
+    GameObject section=null;
+    [SerializeField]
+    bool isRandomSelection=true;
 
-    public void Start()
-    {
-       if(RandomCheck()&&Application.isEditor==false);
+
+     void Start()
+    { 
+        if (isRandomSelection)
         {
-            RandomPick();
+           // RandomPick();
         }
     }
-    public void UpdateRoom()
+    
+    public void UpdateRoom(int index)
     {
-        for (int i = 0; i < variants.Length; i++)
-        {
-            if(variants[i].isActive)
-            {
-                SetVariant(i);
-                i = variants.Length + 1;
-            }
-        }
+        SetVariant(index);
     }
-    bool RandomCheck()
-    {
 
-        for (int i = 0; i < variants.Length; i++)
-        {
-            if (variants[i].isActive)
-            {
-                return false;
-            }
-        }
-        return true;
-
-    }
 
     void RandomPick()
     {
         int randomSeed = Random.Range(0, variants.Length);
-        SetVariant(randomSeed);
-        variants[randomSeed].isActive = true;
-
+        Debug.Log("tkt");
+        UpdateRoom(randomSeed);
     }
 
     public void ClearRoom()
     {
-        for (int i = 0; i < variants.Length; i++)
-        {
-            variants[i].isActive = false;
-        }
         if(section!=null)
         {
             DestroyImmediate(section);
+            section = null;
+            
         }
+        isRandomSelection = true;
     }
     void SetVariant(int index)
     {
+        isRandomSelection = false;
         if(section!=null)
         {
             DestroyImmediate(section.gameObject);
@@ -74,27 +57,10 @@ public class RoomGenerator : MonoBehaviour
         b.transform.rotation=transform.rotation;
         section = b;
     }
-    public void ResetBool(int index)
-    {
-        for (int i = 0; i < variants.Length; i++)
-        {
-            if (i != index)
-            {
-                variants[i].isActive = false;
-            }
-            else
-            {
-                variants[i].isActive = true;
-            }
-        }
-    }
-
 }
 
 [System.Serializable]
 public struct RoomVariants
 {
     public RoomVariant variant;
-    [HideInInspector]
-    public bool isActive;
 }

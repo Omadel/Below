@@ -1,36 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
     
 [CustomEditor(typeof(RoomGenerator))]
-public class EditorRoomGenerator : Editor
+public class EditorRoomGenerator : EditorWindow
 {
-    public override void OnInspectorGUI()
+    GameObject selected;
+    
+
+    [MenuItem("Tools/Room Editor")]
+    public static void ShoWindow()
     {
-
-        RoomGenerator room = (RoomGenerator)target;
-
-        base.OnInspectorGUI();
-        EditorGUILayout.LabelField("Selected room",room.roomSelection);
-        if (GUILayout.Button("Random room",GUILayout.Width(150)))
+        GetWindow(typeof(EditorRoomGenerator));
+        
+    }
+    private void OnGUI()
+    { 
+        
+        GUILayout.Label("For all room");
+        if (GUILayout.Button("Set to random variants"))
         {
-            room.ClearRoom();
-            room.roomSelection = "Random room";
-        }
-        List<string> tools = new List<string>();
-        for (int i = 0; i < room.variants.Length; i++)
-        {
-            if (GUILayout.Button("Select room "+(i+1).ToString(),GUILayout.Width(150)))
+            RoomGenerator[] rooms = FindObjectsOfType<RoomGenerator>();
+            for (int i = 0; i < rooms.Length; i++)
             {
-                room.ResetBool(i);
-                room.UpdateRoom();
-                room.roomSelection = "room " + (1 + i) ;
+                rooms[i].GetComponent<RoomGenerator>().ClearRoom();
             }
-
         }
 
+        GUILayout.Label("For selected Room");
+        if (Selection.gameObjects.Length!=0)
+        {
+            selected = EditorGUILayout.ObjectField("Selected room", Selection.gameObjects[0], typeof(GameObject), false) as GameObject;
 
+            if (selected.GetComponent<RoomGenerator>())
+            {
+                if (GUILayout.Button("Set to random variant"))
+                {
+                    selected.GetComponent<RoomGenerator>().ClearRoom();
+                }
+                for (int i = 0; i < selected.GetComponent<RoomGenerator>().variants.Length; i++)
+                {
+                    if (GUILayout.Button("Set Room "+(1+i)))
+                    {
+                        selected.GetComponent<RoomGenerator>().UpdateRoom(i);
+                    }
+                }
+
+            }
+        }
     }
 }
