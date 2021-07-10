@@ -195,7 +195,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a758610171e6804458d4e6401352caa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variants: []
+  variants:
+  - variant: {fileID: -5020312552353666405, guid: 04df33442432d9147b97f1c69225438f, type: 3}
+    isActive: 0
+  - variant: {fileID: -7577953398250495340, guid: f73f53063a148f24dbfcb3f4091f035b, type: 3}
+    isActive: 0
+  - variant: {fileID: 6403739911641879529, guid: 79bf8b6e8800f5943acd747223600788, type: 3}
+    isActive: 0
   roomSelection: Random room
 --- !u!1001 &51956654818292896
 PrefabInstance:
