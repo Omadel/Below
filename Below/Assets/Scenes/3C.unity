@@ -8847,8 +8847,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: gravity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: jumpSpeed
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: airControl
@@ -8856,7 +8860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: normalSpeed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114036295079588584, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: jumpDuration
@@ -8866,13 +8870,21 @@ PrefabInstance:
       propertyPath: lerpSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114620730111555832, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: colliderThickness
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 114824084839813896, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: cameraSpeed
-      value: 185
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114824084839813896, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: cameraSmoothingFactor
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 136958806423733192, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
