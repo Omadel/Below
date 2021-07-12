@@ -1,10 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace CMF {
     //Advanced walker controller script;
     //This controller is used as a basis for other controller types ('SidescrollerController');
     //Custom movement input can be implemented by creating a new script that inherits 'AdvancedWalkerController' and overriding the 'CalculateMovementDirection' function;
     public class AdvancedWalkerController : Controller {
+        public bool IsSprinting => isSprinting;
+
+        public event Action StartSprinting;
+        public event Action StopSprinting;
+
+        [SerializeField] private PlayerStats playerStats;
 
         //References to attached components;
         protected Transform tr;
@@ -78,6 +85,7 @@ namespace CMF {
             tr = transform;
             characterInput = GetComponent<CharacterInput>();
             ceilingDetector = GetComponent<CeilingDetector>();
+            playerStats ??= GetComponent<PlayerStats>();
 
             if(characterInput == null)
                 Debug.LogWarning("No character input script has been attached to this gameobject", gameObject);
@@ -95,8 +103,16 @@ namespace CMF {
             HandleSprintKey();
         }
         private void HandleSprintKey() {
-            bool isSprintKeyPressed = characterInput.IsSprintKeyPressed;
-            movementSpeed = isSprintKeyPressed ? sprintSpeed : normalSpeed;
+            bool wasSprinting = isSprinting;
+            isSprinting = characterInput.IsSprintKeyPressed && IsGrounded() && playerStats.CanSprint;
+            movementSpeed = isSprinting ? sprintSpeed : normalSpeed;
+            if(isSprinting != wasSprinting) {
+                if(isSprinting) {
+                    StartSprinting?.Invoke();
+                } else {
+                    StopSprinting?.Invoke();
+                }
+            }
         }
 
         //Handle jump booleans for later use in FixedUpdate;
@@ -537,5 +553,7 @@ namespace CMF {
             else
                 momentum = _newMomentum;
         }
+
+        private bool isSprinting;
     }
 }
