@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     [SerializeField] private InputActionReference movementInput;
-    [SerializeField] private float interpolationTime = .4f;
+    //[SerializeField] private float interpolationTime = .4f;
     private Vector3 targetPosition;
 
     public CharacterController controller;
