@@ -6,7 +6,6 @@ public class EditorRoomGenerator : EditorWindow {
     public static void ShoWindow() {
         GetWindow(typeof(EditorRoomGenerator));
     }
-
     private void OnGUI() {
         GUILayout.Label("For all room");
         if(GUILayout.Button("Set to random variants")) {
