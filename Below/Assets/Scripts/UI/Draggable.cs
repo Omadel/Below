@@ -10,9 +10,10 @@ namespace UnityEngine.UI {
         [SerializeField] private float fadeDuration = .1f;
         [SerializeField] private float moveDuration = .1f;
 
-        private void Awake() {
+        protected virtual void Awake() {
             rectTransform = GetComponent<RectTransform>();
             canvasGroup = GetComponent<CanvasGroup>();
+            canvas = GetComponentInParent<Canvas>();
         }
 
         public void OnPointerDown(PointerEventData eventData) {
@@ -30,6 +31,7 @@ namespace UnityEngine.UI {
             canvasGroup.DOFade(dragAlpha, fadeDuration);
             oldPosition = rectTransform.anchoredPosition;
             canMove = false;
+            transform.SetAsLastSibling();
         }
 
         public void OnEndDrag(PointerEventData eventData) {
@@ -46,10 +48,16 @@ namespace UnityEngine.UI {
             rectTransform.DOAnchorPos(position, moveDuration);
         }
 
-        public void IsDroppedInSlot() {
+        public void IsDroppedInSlot(Slot slot, Vector2 position) {
+            if(this.slot != null) {
+                this.slot.CleanSlot();
+            }
             canMove = true;
+            Snap(position);
+            this.slot = slot;
         }
 
+        private Slot slot;
         private bool canMove = false;
         private RectTransform rectTransform;
         private CanvasGroup canvasGroup;
