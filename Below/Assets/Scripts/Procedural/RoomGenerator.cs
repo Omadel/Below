@@ -17,7 +17,8 @@ public class RoomGenerator : MonoBehaviour
     { 
         if (isRandomSelection)
         {
-           // RandomPick();
+            Debug.Log("fkxcvffrej");
+             RandomPick();
         }
     }
     
@@ -30,7 +31,7 @@ public class RoomGenerator : MonoBehaviour
     void RandomPick()
     {
         int randomSeed = Random.Range(0, variants.Length);
-        Debug.Log("tkt");
+        Debug.Log(randomSeed);
         UpdateRoom(randomSeed);
     }
 
