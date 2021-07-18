@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class Item : Draggable {
     private void Slot_OnDropEvent(UnityEngine.EventSystems.PointerEventData eventData) {
         if(eventData.pointerDrag.TryGetComponent<Item>(out Item item)) {
             image.color = (image.color + item.image.color) / 2;
+            item.transform.DOComplete();
             GameObject.Destroy(item.gameObject);
         }
     }
