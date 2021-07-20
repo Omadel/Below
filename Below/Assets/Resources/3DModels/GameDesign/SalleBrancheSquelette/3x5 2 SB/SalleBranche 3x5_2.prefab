@@ -451,7 +451,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a758610171e6804458d4e6401352caa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variants: []
+  variants:
+  - variant: {fileID: 2933214832402246402, guid: 16e21de944d839047a5a77d7dc7e2004, type: 3}
+    isActive: 0
+  - variant: {fileID: -6270138597737948806, guid: 7371813549ba0ef4faa76d65c1411de5, type: 3}
+    isActive: 0
+  - variant: {fileID: 2333430997283445096, guid: 1ebdc3ac27d095e4e942c880040e8295, type: 3}
+    isActive: 0
   roomSelection: Random room
 --- !u!1 &1985142377282981820
 GameObject:
