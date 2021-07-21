@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class RoomGenerator : MonoBehaviour
+public class RoomVarianteGestion : MonoBehaviour
 {
     [SerializeField]
     public RoomVariants[] variants;
@@ -14,13 +14,12 @@ public class RoomGenerator : MonoBehaviour
 
 
      void Start()
-    { 
+     { 
         if (isRandomSelection)
         {
-            Debug.Log("fkxcvffrej");
              RandomPick();
         }
-    }
+     }
     
     public void UpdateRoom(int index)
     {
@@ -28,7 +27,7 @@ public class RoomGenerator : MonoBehaviour
     }
 
 
-    void RandomPick()
+    public void RandomPick()
     {
         int randomSeed = Random.Range(0, variants.Length);
         Debug.Log(randomSeed);

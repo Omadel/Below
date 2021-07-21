@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(RoomGenerator))]
+[CustomEditor(typeof(RoomVarianteGestion))]
 public class RoomGeneratorEditor : Editor
 {
     

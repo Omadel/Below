@@ -9,9 +9,9 @@ public class EditorRoomGenerator : EditorWindow {
     private void OnGUI() {
         GUILayout.Label("For all room");
         if(GUILayout.Button("Set to random variants")) {
-            RoomGenerator[] rooms = FindObjectsOfType<RoomGenerator>();
+            RoomVarianteGestion[] rooms = FindObjectsOfType<RoomVarianteGestion>();
             for(int i = 0; i < rooms.Length; i++) {
-                rooms[i].GetComponent<RoomGenerator>().ClearRoom();
+                rooms[i].GetComponent<RoomVarianteGestion>().ClearRoom();
             }
         }
 
@@ -19,14 +19,18 @@ public class EditorRoomGenerator : EditorWindow {
         if(Selection.gameObjects.Length != 0) {
             selected = EditorGUILayout.ObjectField("Selected room", Selection.gameObjects[0], typeof(GameObject), false) as GameObject;
 
-            if(selected.GetComponent<RoomGenerator>()) {
+            if(selected.GetComponent<RoomVarianteGestion>()) {
                 if(GUILayout.Button("Set to random variant")) {
-                    selected.GetComponent<RoomGenerator>().ClearRoom();
+                    selected.GetComponent<RoomVarianteGestion>().ClearRoom();
                 }
-                for(int i = 0; i < selected.GetComponent<RoomGenerator>().variants.Length; i++) {
+                for(int i = 0; i < selected.GetComponent<RoomVarianteGestion>().variants.Length; i++) {
                     if(GUILayout.Button("Set Room " + (1 + i))) {
-                        selected.GetComponent<RoomGenerator>().UpdateRoom(i);
+                        selected.GetComponent<RoomVarianteGestion>().UpdateRoom(i);
                     }
+                }
+                if (GUILayout.Button("Generate random variant"))
+                {
+                    selected.GetComponent<RoomVarianteGestion>().RandomPick();
                 }
             }
         }
