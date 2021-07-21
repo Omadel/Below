@@ -21,7 +21,7 @@ namespace UnityEngine.UI {
         }
 
         public void OnDrag(PointerEventData eventData) {
-            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            rectTransform.position += (Vector3)eventData.delta;// canvas.scaleFactor;
         }
 
         public void OnBeginDrag(PointerEventData eventData) {
@@ -29,7 +29,7 @@ namespace UnityEngine.UI {
             canvasGroup.blocksRaycasts = false;
             canvasGroup.DOComplete();
             canvasGroup.DOFade(dragAlpha, fadeDuration);
-            oldPosition = rectTransform.anchoredPosition;
+            oldPosition = rectTransform.position;
             canMove = false;
             transform.SetAsLastSibling();
         }
@@ -45,7 +45,7 @@ namespace UnityEngine.UI {
         }
 
         public void Snap(Vector2 position) {
-            rectTransform.DOAnchorPos(position, moveDuration);
+            rectTransform.DOMove(position, moveDuration);
         }
 
         public void IsDroppedInSlot(Slot slot, Vector2 position) {
