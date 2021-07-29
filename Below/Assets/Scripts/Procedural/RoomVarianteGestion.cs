@@ -30,7 +30,6 @@ public class RoomVarianteGestion : MonoBehaviour
     public void RandomPick()
     {
         int randomSeed = Random.Range(0, variants.Length);
-        Debug.Log(randomSeed);
         UpdateRoom(randomSeed);
     }
 

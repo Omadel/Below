@@ -19,7 +19,8 @@ public class RandomEventManager : MonoBehaviour
         }
         for (int i = 0; i < randomintList.Count; i++)
         {
-            randomEventList[i].RandomPick();
+            randomEventList[randomintList[i]].RandomPick();
+
         }
     }
 
