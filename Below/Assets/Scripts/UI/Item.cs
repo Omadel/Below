@@ -1,4 +1,2 @@
-using UnityEngine.UI;
-
-public class Item : Draggable {
+public class Item {
 }
