@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoomVarianteGestion : MonoBehaviour
 {
     [SerializeField]
-    public RoomVariants[] variants;
+    public RoomVariant[] variants;
     [SerializeField]
     GameObject section=null;
     [SerializeField]
@@ -50,16 +50,10 @@ public class RoomVarianteGestion : MonoBehaviour
         {
             DestroyImmediate(section.gameObject);
         }
-        GameObject b=Instantiate(variants[index].variant.gameObject);
+        GameObject b=Instantiate(variants[index].gameObject);
         b.transform.parent =transform;
         b.transform.position =transform.position;
         b.transform.rotation=transform.rotation;
         section = b;
     }
-}
-
-[System.Serializable]
-public struct RoomVariants
-{
-    public RoomVariant variant;
 }

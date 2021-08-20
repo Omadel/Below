@@ -7,6 +7,7 @@ public class AxeTrap : Trap
 {
     [Header("ScriptableObject")]
     [SerializeField]
+    
     public AxeParametre axeParametre;
     [HideInInspector]
     public GameObject activateur;
