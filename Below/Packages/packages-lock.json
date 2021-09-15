@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ad5da6ee5ee39ac654a9c5abd387c94a8bcae218"
+      "hash": "58201fdb66a5943bf9886dc6e48a808a1f3b94ae"
     },
     "com.unity.cinemachine": {
       "version": "2.6.5",

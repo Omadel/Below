@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b48a6f2000b8d4b8ba39d538a59f63, type: 3}
-  m_Name: Library
+  m_Name: ItemLibrary
   m_EditorClassIdentifier: 
   library: []

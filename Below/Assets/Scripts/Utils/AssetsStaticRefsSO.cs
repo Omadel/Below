@@ -7,9 +7,11 @@ public class AssetsStaticRefsSO : Etienne.InitializableScriptableObject {
     [SerializeField] private Object[] objects;
 
     public override void Initialize() {
-        dictionary = new Dictionary<string, Object>();
-        foreach(Object obj in objects) {
-            dictionary.Add(obj.name, obj);
+        if(objects != null && objects.Length > 0) {
+            dictionary = new Dictionary<string, Object>();
+            foreach(Object obj in objects) {
+                dictionary.Add(obj.name, obj);
+            }
         }
     }
 

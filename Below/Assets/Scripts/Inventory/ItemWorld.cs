@@ -9,7 +9,14 @@ public class ItemWorld : MonoBehaviour {
     }
 
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item) {
-        Transform transform = GameObject.Instantiate(AssetsStaticRefsSO.GetObject("ItemWorld") as GameObject, position, Quaternion.identity).transform;
+        if(item == null)
+            return null;
+
+        GameObject go = GameObject.Instantiate(AssetsStaticRefsSO.GetObject("ItemWorld") as GameObject);
+        go.name = $"{item.name} ItemWorld";
+        go.transform.position = position;
+        go.transform.rotation = Quaternion.identity;
+        Transform transform = go.transform;
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
         return itemWorld;
