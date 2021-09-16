@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8260332342992755916}
+  - component: {fileID: 5053403122188745354}
   m_Layer: 0
-  m_Name: Floor_01_Wall_03_b_prefab
+  m_Name: Prefab_Floor_01_Wall_03_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5053403122188745354
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816883574888015786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0202537, y: 1.9963893, z: 0.31137466}
+  m_Center: {x: 1.0084846, y: 0.98521787, z: -0.011562765}
 --- !u!1001 &364786419249568996
 PrefabInstance:
   m_ObjectHideFlags: 0

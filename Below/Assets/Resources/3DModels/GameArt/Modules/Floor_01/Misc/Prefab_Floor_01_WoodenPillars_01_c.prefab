@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4155489379585065187}
   - component: {fileID: 1010099375291797318}
   - component: {fileID: 3017534132714240908}
+  - component: {fileID: 2437080573730685970}
   m_Layer: 0
-  m_Name: Floor_01_WoodenPillars_01_c
+  m_Name: Prefab_Floor_01_WoodenPillars_01_c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2437080573730685970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666091992932407897}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13019726, y: 4.1511803, z: 0.1511029}
+  m_Center: {x: -0.0009225309, y: 2.0634508, z: 0.009810869}

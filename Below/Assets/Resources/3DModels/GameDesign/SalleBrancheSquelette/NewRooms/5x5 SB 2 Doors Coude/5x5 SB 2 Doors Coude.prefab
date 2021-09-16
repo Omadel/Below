@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variants:
-  - variant: {fileID: -4786829246061685574, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
-  - variant: {fileID: -5033371834757146849, guid: c19fa26a20285184d9fdac609f2e1c40, type: 3}
-  - variant: {fileID: 7215066543255003515, guid: 3d946f72302255b4e84c6a4f5f787d2f, type: 3}
-  - variant: {fileID: 2250945694029919630, guid: 233eaf342513b8449af495de1a2ce8e8, type: 3}
-  - variant: {fileID: 6652018167563693492, guid: 507ac51fbd520be4d8389a3fbfa79dec, type: 3}
+  - {fileID: -4786829246061685574, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
+  - {fileID: -5033371834757146849, guid: c19fa26a20285184d9fdac609f2e1c40, type: 3}
+  - {fileID: 7215066543255003515, guid: 3d946f72302255b4e84c6a4f5f787d2f, type: 3}
+  - {fileID: 2250945694029919630, guid: 233eaf342513b8449af495de1a2ce8e8, type: 3}
+  - {fileID: 6652018167563693492, guid: 507ac51fbd520be4d8389a3fbfa79dec, type: 3}
   section: {fileID: 0}
   isRandomSelection: 1
 --- !u!1001 &4006275642405759568
