@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7360974037187353301}
   - component: {fileID: 5875145239720875376}
   - component: {fileID: 8533268229415707066}
+  - component: {fileID: 8653637659732873183}
   m_Layer: 0
-  m_Name: Floor_01_Ground_02_a
+  m_Name: Prefab_Floor_01_Ground_02_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8653637659732873183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884886291544572015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0, z: 2}
+  m_Center: {x: -1, y: 0, z: 1}
