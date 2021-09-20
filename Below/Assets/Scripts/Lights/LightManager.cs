@@ -8,7 +8,7 @@ public class LightManager : Etienne.Singleton<LightManager> {
 
     [Min(0), SerializeField] private float range = 10f, falloff = 3f;
     private List<ManagedLight> lights = new List<ManagedLight>();
-
+    private Vector3 oldPosition = Vector3.zero;
 
     public void AddLight(ManagedLight light) {
         if(lights.Contains(light))
@@ -18,13 +18,19 @@ public class LightManager : Etienne.Singleton<LightManager> {
     }
 
     private void Update() {
-        if(lights == null)
-            return;
-        foreach(ManagedLight light in lights) {
-            if(!light.gameObject.activeInHierarchy) {
-                light.LightOcclusion();
+        if(transform.position != oldPosition) {
+
+            if(lights == null)
+                return;
+            foreach(ManagedLight light in lights) {
+                if(light.gameObject.activeInHierarchy) {
+                    light.HandleIntensity();
+                } else {
+                    light.LightOcclusion();
+                }
             }
         }
+        oldPosition = transform.position;
     }
 
 }
