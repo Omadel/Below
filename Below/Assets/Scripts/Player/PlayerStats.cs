@@ -63,4 +63,9 @@ public class PlayerStats : MonoBehaviour {
 
     private bool loseStamina;
 
+
+    public void LooseLife(int amount) {
+        currentHP -= amount;
+        HPBar.value = currentHP;
+    }
 }
