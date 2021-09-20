@@ -1,9 +1,8 @@
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrap : MonoBehaviour
-{
+public class SpikeTrap : MonoBehaviour {
     [Header("ScriptableObject")]
     [SerializeField]
     public SpikeParametre spikeParametre;
@@ -11,103 +10,101 @@ public class SpikeTrap : MonoBehaviour
     public GameObject activateur;
     [Header("SceneReference")]
     [SerializeField]
-    Animator animatorTrap;
+    private Animator animatorTrap;
+    [SerializeField] private AnimationCurve curve;
     public bool active = false;
-    bool playOnce = false;
-    float animationSpeed = 1;
+    private bool playOnce = false;
+    private float animationSpeed = 1;
     [HideInInspector]
-    public bool multipleBool=false;
-    bool utilityBoolenDown=false;
-    bool trasitionBoolen=false;
+    public bool multipleBool = false;
+    private bool utilityBoolenDown = false;
+    private bool trasitionBoolen = false;
+    private GameObject spikes;
 
-    void Start()
-    {
+    private void Start() {
         animationSpeed = spikeParametre.initialSpeed;
-        animatorTrap.speed = 1;
+        if(animatorTrap != null) {
+            animatorTrap.speed = 1;
+        }
+        spikes = transform.GetChild(1).gameObject;
     }
-    void Update()
-    {
-        if (spikeParametre.spikeType==SpikeType.Solo)
-        {
-            if (spikeParametre.oneTimeSwing == true)
-            {
-                if (active == true && playOnce == false)
-                {
+
+    private void Update() {
+        if(spikeParametre.spikeType == SpikeType.Solo) {
+            if(spikeParametre.oneTimeSwing == true) {
+                if(active == true && playOnce == false) {
                     playOnce = true;
                     StopCoroutine(SwingDelayed(spikeParametre.timeBeforeActivation));
                     StartCoroutine(SwingDelayed(spikeParametre.timeBeforeActivation));
                     animatorTrap.speed = animationSpeed;
                 }
-            }
-            else
-            {
-                
+            } else {
+
                 VerifyActivationAndSpeed();
             }
-        }
-        else if(spikeParametre.spikeType==SpikeType.Multiple)
-        {
+        } else if(spikeParametre.spikeType == SpikeType.Multiple) {
 
-            if (utilityBoolenDown == true)
-            {
+            if(utilityBoolenDown == true) {
                 animatorTrap.Play("wait");
             }
         }
 
     }
-    private void VerifyActivationAndSpeed()
-    {
-        if(active==true)
-        {
-            animatorTrap.speed=spikeParametre.initialSpeed;
-            if(utilityBoolenDown==false&&trasitionBoolen==false)
-            {
-                StartCoroutine(UpWait(spikeParametre.timeDown));
+    private void VerifyActivationAndSpeed() {
+        if(active == true) {
+            if(animatorTrap != null) {
+                animatorTrap.speed = spikeParametre.initialSpeed;
             }
-            else if(utilityBoolenDown == true && trasitionBoolen == false)
-            {
+            if(utilityBoolenDown == false && trasitionBoolen == false) {
+                StartCoroutine(UpWait(spikeParametre.timeDown));
+            } else if(utilityBoolenDown == true && trasitionBoolen == false) {
                 StartCoroutine(DownWait(1));
             }
-            if(utilityBoolenDown == true)
-            {
-                animatorTrap.Play("wait");
+            if(utilityBoolenDown == true) {
+                if(animatorTrap == null) {
+                    spikes.transform.DOMoveY(0, animationSpeed).SetEase(curve);
+                } else {
+                    animatorTrap.Play("wait");
+                }
             }
-        }
-        else
-        {
-            animatorTrap.speed=0;
+        } else {
+            if(animatorTrap != null) {
+                animatorTrap.speed = 0;
+            }
 
         }
     }
 
-    IEnumerator UpWait(float time)
-    {
+    private IEnumerator UpWait(float time) {
         trasitionBoolen = true;
         utilityBoolenDown = true;
         yield return new WaitForSeconds(time);
-        
+
 
         trasitionBoolen = false;
     }
-    public IEnumerator DownWait(float time)
-    {
-        animatorTrap.Play("attack");
+    public IEnumerator DownWait(float time) {
+        if(animatorTrap == null) {
+            spikes.transform.DOMoveY(1, animationSpeed).SetEase(curve);
+        } else {
+            animatorTrap.Play("attack");
+        }
         trasitionBoolen = true;
         utilityBoolenDown = false;
         yield return new WaitForSeconds(time);
         trasitionBoolen = false;
     }
-    public float GetAnimationSpeed()
-    {
+    public float GetAnimationSpeed() {
         return animationSpeed;
     }
-    public void ActualiseRotationSpeed(int purcent)
-    {
-        animationSpeed = spikeParametre.initialSpeed * ((float)purcent / 100f);
+    public void ActualiseRotationSpeed(int purcent) {
+        animationSpeed = spikeParametre.initialSpeed * (purcent / 100f);
     }
-    IEnumerator SwingDelayed(float time)
-    {
+
+    private IEnumerator SwingDelayed(float time) {
         yield return new WaitForSeconds(time);
-        animatorTrap.Play("attackOnTime");
+        if(animatorTrap != null) {
+            animatorTrap.Play("attackOnTime");
+        }
     }
 }
