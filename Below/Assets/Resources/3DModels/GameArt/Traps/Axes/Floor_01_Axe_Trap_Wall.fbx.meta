@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Cache
+    second: {fileID: 2100000, guid: 1960ce073b28a7f429a8e35f9bbf73e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Iron
     second: {fileID: 2100000, guid: cd27ef0c7a49ffd4cacee524842e5ec5, type: 2}
   - first:
