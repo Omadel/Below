@@ -27,7 +27,7 @@ public class SpikeManager : MonoBehaviour
             {
                 for (int i = 0; i < tempo.spikeTrapUp.Length; i++)
                 {
-                    if( tempo.spikeTrapUp[i] != null && tempo.spikeTrapUp[i].spikeParametre.spikeType==SpikeType.Solo)
+                    if( tempo.spikeTrapUp[i] != null && tempo.spikeTrapUp[i].spikeParameter.SpikeType==SpikeType.Solo)
                     {
                         tempo.spikeTrapUp[i] = null;
                     }

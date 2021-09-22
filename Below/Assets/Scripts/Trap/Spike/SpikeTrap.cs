@@ -2,75 +2,50 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-public class SpikeTrap : MonoBehaviour {
+public class SpikeTrap : Switchable {
+    [HideInInspector] public GameObject activator;
+
     [Header("ScriptableObject")]
-    [SerializeField]
-    public SpikeParametre spikeParametre;
-    [HideInInspector]
-    public GameObject activateur;
-    [Header("SceneReference")]
-    [SerializeField]
-    private Animator animatorTrap;
+    [SerializeField] public SpikeParametre spikeParameter;
     [SerializeField] private AnimationCurve curve;
-    public bool active = false;
-    private bool playOnce = false;
-    private float animationSpeed = 1;
-    [HideInInspector]
-    public bool multipleBool = false;
-    private bool utilityBoolenDown = false;
-    private bool trasitionBoolen = false;
     private GameObject spikes;
 
-    private void Start() {
-        animationSpeed = spikeParametre.initialSpeed;
-        if(animatorTrap != null) {
-            animatorTrap.speed = 1;
-        }
+    public bool multipleBool = false, active = false, playOnce = false, utilityBoolenDown = false, trasitionBoolen = false;
+
+    protected override void Start() {
+        base.Start();
         spikes = transform.GetChild(1).gameObject;
     }
 
     private void Update() {
-        if(spikeParametre.spikeType == SpikeType.Solo) {
-            if(spikeParametre.oneTimeSwing == true) {
+        if(spikeParameter.SpikeType == SpikeType.Solo) {
+            if(spikeParameter.Loop) {
                 if(active == true && playOnce == false) {
                     playOnce = true;
-                    StopCoroutine(SwingDelayed(spikeParametre.timeBeforeActivation));
-                    StartCoroutine(SwingDelayed(spikeParametre.timeBeforeActivation));
-                    animatorTrap.speed = animationSpeed;
+                    StopCoroutine(SwingDelayed(spikeParameter.TimeBeforeTurningOn));
+                    StartCoroutine(SwingDelayed(spikeParameter.TimeBeforeTurningOn));
                 }
             } else {
 
                 VerifyActivationAndSpeed();
             }
-        } else if(spikeParametre.spikeType == SpikeType.Multiple) {
+        } else if(spikeParameter.SpikeType == SpikeType.Multiple) {
 
             if(utilityBoolenDown == true) {
-                animatorTrap.Play("wait");
             }
         }
 
     }
     private void VerifyActivationAndSpeed() {
         if(active == true) {
-            if(animatorTrap != null) {
-                animatorTrap.speed = spikeParametre.initialSpeed;
-            }
             if(utilityBoolenDown == false && trasitionBoolen == false) {
-                StartCoroutine(UpWait(spikeParametre.timeDown));
+                StartCoroutine(UpWait(spikeParameter.TimeInBetweenLoops));
             } else if(utilityBoolenDown == true && trasitionBoolen == false) {
                 StartCoroutine(DownWait(1));
             }
             if(utilityBoolenDown == true) {
-                if(animatorTrap == null) {
-                    spikes.transform.DOMoveY(0, animationSpeed).SetEase(curve);
-                } else {
-                    animatorTrap.Play("wait");
-                }
             }
         } else {
-            if(animatorTrap != null) {
-                animatorTrap.speed = 0;
-            }
 
         }
     }
@@ -84,27 +59,55 @@ public class SpikeTrap : MonoBehaviour {
         trasitionBoolen = false;
     }
     public IEnumerator DownWait(float time) {
-        if(animatorTrap == null) {
-            spikes.transform.DOMoveY(1, animationSpeed).SetEase(curve);
-        } else {
-            animatorTrap.Play("attack");
-        }
         trasitionBoolen = true;
         utilityBoolenDown = false;
         yield return new WaitForSeconds(time);
         trasitionBoolen = false;
     }
-    public float GetAnimationSpeed() {
-        return animationSpeed;
-    }
-    public void ActualiseRotationSpeed(int purcent) {
-        animationSpeed = spikeParametre.initialSpeed * (purcent / 100f);
-    }
 
     private IEnumerator SwingDelayed(float time) {
         yield return new WaitForSeconds(time);
-        if(animatorTrap != null) {
-            animatorTrap.Play("attackOnTime");
+    }
+
+    [ContextMenu("Turn On")]
+    public override void TurnOn() {
+        if(IsOff) {
+            OnStartTransitioning?.Invoke();
+            StartCoroutine(WaitToTurnOn());
         }
+    }
+
+    [ContextMenu("Turn Off")]
+    public override void TurnOff() {
+        if(IsOn) {
+            OnStartTransitioning?.Invoke();
+            StartCoroutine(WaitToTurnOff());
+        }
+    }
+
+    private IEnumerator WaitToTurnOn() {
+        yield return new WaitForSeconds(spikeParameter.TimeBeforeTurningOn);
+        spikes.transform.DOMoveY(1, spikeParameter.AnimationDuration)
+            .SetEase(curve)
+            .OnComplete(() => OnTurnOn?.Invoke());
+    }
+
+    private IEnumerator WaitToTurnOff() {
+        yield return new WaitForSeconds(spikeParameter.TimeBeforeTurningOn);
+        spikes.transform.DOMoveY(0, spikeParameter.AnimationDuration)
+            .SetEase(curve)
+            .OnComplete(() => OnTurnOff?.Invoke());
+    }
+
+    protected override void TurnOnAction() {
+        SetState(SwitchableState.On);
+    }
+
+    protected override void TurnOffAction() {
+        SetState(SwitchableState.Off);
+    }
+
+    protected override void StartTransitioningAction() {
+        SetState(SwitchableState.Transitioning);
     }
 }

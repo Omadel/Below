@@ -2,50 +2,44 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(SpikeParametre))]
-public class SpikeParametreEditor : Editor
-{
+public class SpikeParametreEditor : EtienneEditor.Editor<SpikeParametre> {
     public Texture textSCOB;
-    public override void OnInspectorGUI()
-    {
-        var t = (target as SpikeParametre);
-        Rect r = (Rect)EditorGUILayout.BeginVertical("Button");
+    public override void OnInspectorGUI() {
+        SpikeParametre t = Target;
+        SerializedProperty damage = serializedObject.FindProperty("damage"),
+            spikeType = serializedObject.FindProperty("spikeType"),
+            loop = serializedObject.FindProperty("loop"),
+            animationDuration = serializedObject.FindProperty("animationDuration"),
+            timeBeforeTurningOn = serializedObject.FindProperty("timeBeforeTurningOn"),
+            timeInBetweenLoops = serializedObject.FindProperty("timeInBetweenLoops");
+
+        EditorGUILayout.BeginVertical("Button");
         GUI.contentColor = Color.white;
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Dommage of the axe");
-        t.dommage = EditorGUILayout.IntField(t.dommage);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(damage);
+        EditorGUILayout.PropertyField(animationDuration);
+        EditorGUILayout.PropertyField(spikeType);
 
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("initial speed of the axe");
-        t.initialSpeed = EditorGUILayout.FloatField(t.initialSpeed);
-        EditorGUILayout.EndHorizontal();
-
-        EditorGUILayout.Space();
-
-        t.spikeType = (SpikeType)EditorGUILayout.EnumPopup("SpikeTrap type",t.spikeType);
-
-        if(t.spikeType==SpikeType.Solo)
-        {
-            EditorGUILayout.LabelField("___________________________");
-            EditorGUILayout.LabelField("            Solo Spike  ");
-            t.oneTimeSwing = GUILayout.Toggle(t.oneTimeSwing, "One swing ");
-            EditorGUILayout.Space();
-            if(t.oneTimeSwing==false)
-            {
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("time were the spike is down");
-                t.timeDown = EditorGUILayout.FloatField(t.timeDown);
-                EditorGUILayout.EndHorizontal();
+        if(Target.SpikeType == SpikeType.Solo) {
+            GuiLine();
+            EditorGUILayout.PropertyField(loop);
+            if(Target.Loop) {
+                EditorGUILayout.PropertyField(timeInBetweenLoops);
+            } else {
+            EditorGUILayout.PropertyField(timeBeforeTurningOn);
             }
         }
-        if (t.oneTimeSwing == true)
-        {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Delay time before activation");
-            t.timeBeforeActivation = EditorGUILayout.FloatField(t.timeBeforeActivation);
-            EditorGUILayout.EndHorizontal();
-        }
+
+        serializedObject.ApplyModifiedProperties();
         EditorGUILayout.EndVertical();
+    }
+
+    private void GuiLine(int i_height = 1) {
+
+        Rect rect = EditorGUILayout.GetControlRect(false, i_height);
+
+        rect.height = i_height;
+
+        EditorGUI.DrawRect(rect, new Color(0.5f, 0.5f, 0.5f, 1));
+
     }
 }
