@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ac5985c3ff15649b59eb05b9c069e3, type: 3}
   m_Name: SpikeParameter
   m_EditorClassIdentifier: 
-  dommage: 5
-  initialSpeed: 1
-  solo: 0
-  multiple: 0
-  oneTimeSwing: 0
-  timeBeforeActivation: 0
+  damage: 5
+  spikeType: 0
+  loop: 1
+  animationDuration: 1
+  timeBeforeTurningOn: 0
+  timeInBetweenLoops: 1
