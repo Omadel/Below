@@ -27,7 +27,7 @@ public class SpikeManager : MonoBehaviour
             {
                 for (int i = 0; i < tempo.spikeTrapUp.Length; i++)
                 {
-                    if( tempo.spikeTrapUp[i] != null && tempo.spikeTrapUp[i].spikeParameter.SpikeType==SpikeType.Solo)
+                    if( tempo.spikeTrapUp[i] != null && tempo.spikeTrapUp[i].parameters.SpikeType==SpikeType.Solo)
                     {
                         tempo.spikeTrapUp[i] = null;
                     }
@@ -42,10 +42,10 @@ public class SpikeManager : MonoBehaviour
 
         foreach (SpikeTrap spike in tempos[tempoCount].spikeTrapUp)
         {
-            if (spike.active == true)
-            {
-                StartCoroutine(spike.DownWait(1));
-            }
+            //if (spike.active == true)
+            //{
+            //    //StartCoroutine(spike.DownWait(1));
+            //}
         }
         tempoCount++;
         if(tempoCount>=tempos.Count)

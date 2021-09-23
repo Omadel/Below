@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8473407063465569360}
-  - component: {fileID: 7053139718898714333}
   m_Layer: 0
   m_Name: Prefab_Floor_01_Wall_01_b_hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8473407063465569360
 Transform:
@@ -32,19 +31,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7053139718898714333
-BoxCollider:
+--- !u!64 &5936845494785280947
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175573305599131001}
+  m_GameObject: {fileID: 5844668339765400192}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.0458727, y: 2.0439487, z: 0.31639493}
-  m_Center: {x: 0.99939775, y: 0.9939039, z: -0.012334354}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 137821747882297246, guid: 9ccf38616cbf76e4a86ec6ef7e5cf837, type: 3}
 --- !u!1001 &6763570129289441233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,8 +100,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_01_Wall_01_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8d737ea3e703bc4a8b5ca97331ea223, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8d737ea3e703bc4a8b5ca97331ea223, type: 3}
+--- !u!1 &5844668339765400192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d8d737ea3e703bc4a8b5ca97331ea223, type: 3}
+  m_PrefabInstance: {fileID: 6763570129289441233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6509881036774574138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8d737ea3e703bc4a8b5ca97331ea223, type: 3}

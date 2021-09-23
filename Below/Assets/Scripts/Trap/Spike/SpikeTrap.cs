@@ -3,99 +3,64 @@ using System.Collections;
 using UnityEngine;
 
 public class SpikeTrap : Switchable {
-    [HideInInspector] public GameObject activator;
-
-    [Header("ScriptableObject")]
-    [SerializeField] public SpikeParametre spikeParameter;
-    [SerializeField] private AnimationCurve curve;
+    [SerializeField] public SpikeParameter parameters;
     private GameObject spikes;
-
-    public bool multipleBool = false, active = false, playOnce = false, utilityBoolenDown = false, trasitionBoolen = false;
+    private Coroutine coroutine;
 
     protected override void Start() {
         base.Start();
         spikes = transform.GetChild(1).gameObject;
     }
 
-    private void Update() {
-        if(spikeParameter.SpikeType == SpikeType.Solo) {
-            if(spikeParameter.Loop) {
-                if(active == true && playOnce == false) {
-                    playOnce = true;
-                    StopCoroutine(SwingDelayed(spikeParameter.TimeBeforeTurningOn));
-                    StartCoroutine(SwingDelayed(spikeParameter.TimeBeforeTurningOn));
-                }
-            } else {
-
-                VerifyActivationAndSpeed();
-            }
-        } else if(spikeParameter.SpikeType == SpikeType.Multiple) {
-
-            if(utilityBoolenDown == true) {
-            }
-        }
-
+    private void OnEnable() {
+        coroutine = StartCoroutine(Sequence());
     }
-    private void VerifyActivationAndSpeed() {
-        if(active == true) {
-            if(utilityBoolenDown == false && trasitionBoolen == false) {
-                StartCoroutine(UpWait(spikeParameter.TimeInBetweenLoops));
-            } else if(utilityBoolenDown == true && trasitionBoolen == false) {
-                StartCoroutine(DownWait(1));
-            }
-            if(utilityBoolenDown == true) {
+
+    private void OnDisable() {
+        StopCoroutine(coroutine);
+    }
+
+
+    public IEnumerator Sequence() {
+        if(parameters.Loop) {
+            while(true) {
+                yield return new WaitForSeconds(parameters.TimeInBetweenLoops);
+                TurnOn();
+                yield return new WaitForSeconds(parameters.AnimationDuration);
+                TurnOff();
             }
         } else {
-
+            yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
+            TurnOn();
         }
     }
 
-    private IEnumerator UpWait(float time) {
-        trasitionBoolen = true;
-        utilityBoolenDown = true;
-        yield return new WaitForSeconds(time);
 
-
-        trasitionBoolen = false;
-    }
-    public IEnumerator DownWait(float time) {
-        trasitionBoolen = true;
-        utilityBoolenDown = false;
-        yield return new WaitForSeconds(time);
-        trasitionBoolen = false;
-    }
-
-    private IEnumerator SwingDelayed(float time) {
-        yield return new WaitForSeconds(time);
-    }
-
-    [ContextMenu("Turn On")]
     public override void TurnOn() {
         if(IsOff) {
-            OnStartTransitioning?.Invoke();
             StartCoroutine(WaitToTurnOn());
         }
     }
 
-    [ContextMenu("Turn Off")]
     public override void TurnOff() {
         if(IsOn) {
-            OnStartTransitioning?.Invoke();
             StartCoroutine(WaitToTurnOff());
         }
     }
 
     private IEnumerator WaitToTurnOn() {
-        yield return new WaitForSeconds(spikeParameter.TimeBeforeTurningOn);
-        spikes.transform.DOMoveY(1, spikeParameter.AnimationDuration)
-            .SetEase(curve)
+        OnStartTransitioning?.Invoke();
+        yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
+        spikes.transform.DOMoveY(1, parameters.AnimationDuration)
+            .SetEase(parameters.Ease)
             .OnComplete(() => OnTurnOn?.Invoke());
     }
 
     private IEnumerator WaitToTurnOff() {
-        yield return new WaitForSeconds(spikeParameter.TimeBeforeTurningOn);
-        spikes.transform.DOMoveY(0, spikeParameter.AnimationDuration)
-            .SetEase(curve)
+        OnStartTransitioning?.Invoke();
+        yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
+        spikes.transform.DOMoveY(0, parameters.AnimationDuration)
+            .SetEase(parameters.Ease)
             .OnComplete(() => OnTurnOff?.Invoke());
     }
 
