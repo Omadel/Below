@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(SpikeParameter))]
-public class SpikeParameterEditor : EtienneEditor.Editor<SpikeParameter> {
+[CustomEditor(typeof(TrapParameter), true, isFallback = true)]
+public class TrapParameterEditor : EtienneEditor.Editor<TrapParameter> {
     public override void OnInspectorGUI() {
         SerializedProperty damage = serializedObject.FindProperty("damage"),
             spikeType = serializedObject.FindProperty("spikeType"),
@@ -25,7 +25,7 @@ public class SpikeParameterEditor : EtienneEditor.Editor<SpikeParameter> {
             if(Target.Loop) {
                 EditorGUILayout.PropertyField(timeInBetweenLoops);
             } else {
-            EditorGUILayout.PropertyField(timeBeforeTurningOn);
+                EditorGUILayout.PropertyField(timeBeforeTurningOn);
             }
         }
 

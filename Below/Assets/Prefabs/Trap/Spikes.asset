@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23ac5985c3ff15649b59eb05b9c069e3, type: 3}
-  m_Name: SpikeParameter
+  m_Script: {fileID: 11500000, guid: 37cf661112e26854bb90c286b360dfbf, type: 3}
+  m_Name: Spikes
   m_EditorClassIdentifier: 
   damage: 5
   spikeType: 0
-  loop: 1
-  animationDuration: 0.2
-  timeBeforeTurningOn: 1
+  loop: 0
+  animationDuration: 0.4
+  timeBeforeTurningOn: 0
   timeInBetweenLoops: 1
   ease:
     serializedVersion: 2
@@ -33,11 +33,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.633961
-      outSlope: -0.633961
+      inSlope: -0.8576333
+      outSlope: -0.8576333
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10460258
+      inWeight: 0.13749999
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

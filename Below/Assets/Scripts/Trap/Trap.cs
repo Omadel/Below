@@ -1,18 +1,59 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public abstract class Trap : Switchable {
+    [SerializeField] public TrapParameter parameters;
+    private Coroutine coroutine;
+
+    private void OnEnable() {
+        coroutine = StartCoroutine(Sequence());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnDisable() {
+        StopCoroutine(coroutine);
+    }
+
+
+    protected IEnumerator Sequence() {
+        if(parameters.Loop) {
+            while(true) {
+                yield return new WaitForSeconds(parameters.TimeInBetweenLoops);
+                TurnOn();
+                yield return new WaitForSeconds(parameters.AnimationDuration);
+                TurnOff();
+            }
+        } else {
+            yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
+            TurnOn();
+        }
+    }
+
+
+    public override void TurnOn() {
+        if(IsOff) {
+            StartCoroutine(WaitToTurnOn());
+        }
+    }
+
+    public override void TurnOff() {
+        if(IsOn) {
+            StartCoroutine(WaitToTurnOff());
+        }
+    }
+
+    private IEnumerator WaitToTurnOn() {
+        OnStartTransitioning?.Invoke();
+        yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
+        TweenAnimationOn();
+    }
+
+    protected abstract void TweenAnimationOn();
+
+    protected abstract void TweenAnimationOff();
+
+    private IEnumerator WaitToTurnOff() {
+        OnStartTransitioning?.Invoke();
+        yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
+        TweenAnimationOn();
     }
 }

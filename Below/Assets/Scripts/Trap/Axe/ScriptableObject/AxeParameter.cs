@@ -5,7 +5,7 @@ using UnityEditor;
 
 
 [CreateAssetMenu(fileName = "AxeParameter", menuName = "Trap/Axe parameter")]
-public class AxeParametre : ScriptableObject
+public class AxeParameter : TrapParameter
 {
     public int dommage = 5;
     public float initialSpeed = 1;

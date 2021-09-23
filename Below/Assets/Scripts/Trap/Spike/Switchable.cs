@@ -20,10 +20,17 @@ public abstract class Switchable : MonoBehaviour {
         OnTurnOff += TurnOffAction;
         OnStartTransitioning += StartTransitioningAction;
     }
+    protected virtual void TurnOnAction() {
+        SetState(SwitchableState.On);
+    }
 
-    protected abstract void TurnOnAction();
-    protected abstract void TurnOffAction();
-    protected abstract void StartTransitioningAction();
+    protected virtual void TurnOffAction() {
+        SetState(SwitchableState.Off);
+    }
+
+    protected virtual void StartTransitioningAction() {
+        SetState(SwitchableState.Transitioning);
+    }
 
     public abstract void TurnOn();
     public abstract void TurnOff();

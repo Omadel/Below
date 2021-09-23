@@ -1,11 +1,11 @@
 using UnityEditor;
 
-[CustomEditor(typeof(SpikeTrap))]
-public class SpikeTrapEditor : EtienneEditor.Editor<SpikeTrap> {
+[CustomEditor(typeof(Trap), true, isFallback = true)]
+public class TrapEditor : EtienneEditor.Editor<Trap> {
     public override void OnInspectorGUI() {
+        Editor.CreateEditor(Target, typeof(SwitchableEditor)).OnInspectorGUI();
         if(Target.parameters != null) {
             Editor.CreateEditor(Target.parameters).OnInspectorGUI();
         }
-        Editor.CreateEditor(Target, typeof(SwitchableEditor)).OnInspectorGUI();
     }
 }
