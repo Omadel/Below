@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 
 public abstract class Switchable : MonoBehaviour {
+    public bool Manual => manual;
+    protected bool manual;
+    public void ToggleManual() => manual = !manual;
+
+
     public SwitchableState State => state;
     private SwitchableState state = SwitchableState.Off;
     public enum SwitchableState { On, Off, Transitioning }

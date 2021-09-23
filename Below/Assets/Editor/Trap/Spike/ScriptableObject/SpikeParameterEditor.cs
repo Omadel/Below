@@ -1,22 +1,22 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(SpikeParametre))]
-public class SpikeParametreEditor : EtienneEditor.Editor<SpikeParametre> {
-    public Texture textSCOB;
+[CustomEditor(typeof(SpikeParameter))]
+public class SpikeParameterEditor : EtienneEditor.Editor<SpikeParameter> {
     public override void OnInspectorGUI() {
-        SpikeParametre t = Target;
         SerializedProperty damage = serializedObject.FindProperty("damage"),
             spikeType = serializedObject.FindProperty("spikeType"),
             loop = serializedObject.FindProperty("loop"),
             animationDuration = serializedObject.FindProperty("animationDuration"),
             timeBeforeTurningOn = serializedObject.FindProperty("timeBeforeTurningOn"),
-            timeInBetweenLoops = serializedObject.FindProperty("timeInBetweenLoops");
+            timeInBetweenLoops = serializedObject.FindProperty("timeInBetweenLoops"),
+            ease = serializedObject.FindProperty("ease");
 
         EditorGUILayout.BeginVertical("Button");
         GUI.contentColor = Color.white;
         EditorGUILayout.PropertyField(damage);
         EditorGUILayout.PropertyField(animationDuration);
+        EditorGUILayout.PropertyField(ease);
         EditorGUILayout.PropertyField(spikeType);
 
         if(Target.SpikeType == SpikeType.Solo) {
