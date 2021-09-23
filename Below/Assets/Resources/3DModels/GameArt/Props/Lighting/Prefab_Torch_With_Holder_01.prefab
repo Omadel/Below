@@ -293,6 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6952230194797998431}
+  - component: {fileID: 2739910265093786421}
   m_Layer: 0
   m_Name: Prefab_Torch_With_Holder_01
   m_TagString: Untagged
@@ -317,20 +318,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7116653113468235556
-CapsuleCollider:
+--- !u!64 &2739910265093786421
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7748329202590834524}
+  m_GameObject: {fileID: 2778115819331924106}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.08
-  m_Height: 0.61
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.06321126, z: 0.15}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3298800115395149385, guid: 94fd609558062e04b8421554583e93d2, type: 3}
 --- !u!1001 &7564868992961581273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +342,14 @@ PrefabInstance:
     - target: {fileID: 251154980208234373, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
       propertyPath: m_Name
       value: Prefab_Torch_Holder_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 251154980208234373, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558513939190590945, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8371775802642974745, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
       propertyPath: m_RootOrder
@@ -388,11 +397,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
---- !u!1 &7748329202590834524 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 251154980208234373, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
-  m_PrefabInstance: {fileID: 7564868992961581273}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2077661328594000064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8371775802642974745, guid: 04e3a68cb6bbd55489403d953247bf3b, type: 3}
@@ -416,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 4734079328322162592, guid: 28c4897f841cf304f8163ba86cd1aa49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -1.909
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402354440044401946, guid: 28c4897f841cf304f8163ba86cd1aa49, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5658504910943511319, guid: 28c4897f841cf304f8163ba86cd1aa49, type: 3}
       propertyPath: m_RootOrder
@@ -464,6 +472,10 @@ PrefabInstance:
     - target: {fileID: 8331443260011662135, guid: 28c4897f841cf304f8163ba86cd1aa49, type: 3}
       propertyPath: m_Name
       value: Prefab_Torch_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331443260011662135, guid: 28c4897f841cf304f8163ba86cd1aa49, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c4897f841cf304f8163ba86cd1aa49, type: 3}
