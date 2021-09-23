@@ -179,6 +179,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &1152385948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6178766574799963111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118c13b0725e31b4da8f7fc880190911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugLooseLife:
+    m_Name: Debug Loose Life
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 410b6dd4-21cc-478d-8b3a-f192e543b5d3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a1a03626-d358-461e-a75d-347b5d6e4a1e
+      m_Path: <Keyboard>/numpadMinus
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Debug Loose Life
+      m_Flags: 0
+  debugGainLife:
+    m_Name: Debug Gain Life
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 37d53151-c251-476c-8a15-1d99b8582391
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0950c660-29a6-4de3-921c-bd68cc79fd41
+      m_Path: <Keyboard>/numpadPlus
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Debug Gain Life
+      m_Flags: 0
+  playerWalker: {fileID: 6066004132385676993}
+  maxHP: 100
+  maxStamina: 100
+  staminaGain: 2
+  staminaUsage: 1
+  HPBar: {fileID: 6177784172910363463}
+  StaminaBar: {fileID: 6177784172422583685}
+--- !u!114 &1152385957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6178766574799963111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980527b6b6448fc469fbad43fce0b62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPersistant: 0
+  range: 10
+  falloff: 3
 --- !u!114 &940167617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,72 +359,6 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
---- !u!114 &1152385948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178766574799963111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118c13b0725e31b4da8f7fc880190911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugLooseLife:
-    m_Name: Debug Loose Life
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 410b6dd4-21cc-478d-8b3a-f192e543b5d3
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a1a03626-d358-461e-a75d-347b5d6e4a1e
-      m_Path: <Keyboard>/numpadMinus
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Debug Loose Life
-      m_Flags: 0
-  debugGainLife:
-    m_Name: Debug Gain Life
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 37d53151-c251-476c-8a15-1d99b8582391
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 0950c660-29a6-4de3-921c-bd68cc79fd41
-      m_Path: <Keyboard>/numpadPlus
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Debug Gain Life
-      m_Flags: 0
-  playerWalker: {fileID: 6066004132385676993}
-  maxHP: 100
-  maxStamina: 100
-  staminaGain: 2
-  staminaUsage: 1
-  HPBar: {fileID: 6177784172910363463}
-  StaminaBar: {fileID: 6177784172422583685}
---- !u!114 &1152385957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178766574799963111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 980527b6b6448fc469fbad43fce0b62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPersistant: 0
-  range: 10
-  falloff: 3
 --- !u!1001 &6177784172433139395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -851,6 +851,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1669431759776817574, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: m_Intensity
+      value: 25.066902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669431759776817574, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
       objectReference: {fileID: 0}
@@ -861,6 +865,10 @@ PrefabInstance:
     - target: {fileID: 1804674377255121149, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
       propertyPath: m_Intensity
       value: 315
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399293615833212642, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
+      propertyPath: m_Name
+      value: Point Light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d075d3ed32dfe1498e31454964d07e8, type: 3}
