@@ -8,13 +8,13 @@ public class RoomVarianteGestion : MonoBehaviour
     [SerializeField]
     public RoomVariant[] variants;
     [SerializeField]
-    GameObject section=null;
+    int section;
     [SerializeField]
-    bool isRandomSelection=true;
+    bool isRandomSelection;
 
 
      void Start()
-     { 
+     {
         if (isRandomSelection)
         {
              RandomPick();
@@ -35,25 +35,29 @@ public class RoomVarianteGestion : MonoBehaviour
 
     public void ClearRoom()
     {
-        if(section!=null)
-        {
-            DestroyImmediate(section);
-            section = null;
-            
-        }
+
         isRandomSelection = true;
+        variants[section].gameObject.SetActive(false);
+
     }
     void SetVariant(int index)
     {
         isRandomSelection = false;
-        if(section!=null)
-        {
-            DestroyImmediate(section.gameObject);
-        }
-        GameObject b=Instantiate(variants[index].gameObject);
-        b.transform.parent =transform;
-        b.transform.position =transform.position;
-        b.transform.rotation=transform.rotation;
-        section = b;
+        variants[section].gameObject.SetActive(false);
+        section = index;
+        variants[section].gameObject.SetActive(true);
+
+        #region Instansiate 
+        //if(section!=null)
+        //{
+
+        //DestroyImmediate(section.gameObject);
+        //}
+        //GameObject b=Instantiate(variants[index].gameObject);
+        //b.transform.parent =transform;
+        //b.transform.position =transform.position;
+        //b.transform.rotation=transform.rotation;
+        //section = b;
+        #endregion
     }
 }

@@ -829,7 +829,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2311197941274191617, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2311197941274191617, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -883,6 +883,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5138153455555235990, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882869314478148462, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5888854117697918789, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
       propertyPath: m_Name
       value: 5x5 SB 2 Doors Coude Atelier_1
@@ -907,6 +915,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.12641644
       objectReference: {fileID: 0}
+    - target: {fileID: 9006072063088674226, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
 --- !u!1001 &1537001636
@@ -930,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8711768039419001469, guid: ad4906d448b37624c97a676e428aab1c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8711768039419001469, guid: ad4906d448b37624c97a676e428aab1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1420,7 +1432,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 3171.2417
+  m_Intensity: 62699.64
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1534,7 +1546,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  m_Intensity: 3171.2417
+  m_Intensity: 62699.64
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1926,6 +1938,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: maxStamina
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: staminaGain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: staminaUsage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1330376417, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1936,7 +1960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6175913352216927699, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6175913352216927699, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2025,6 +2049,10 @@ PrefabInstance:
     - target: {fileID: 6178766574799963111, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193452657560276225, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7545371905092471499, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_Name
