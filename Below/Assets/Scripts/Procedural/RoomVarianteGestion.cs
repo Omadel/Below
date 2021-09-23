@@ -15,6 +15,8 @@ public class RoomVarianteGestion : MonoBehaviour
 
      void Start()
      {
+        
+        print(isRandomSelection);
         if (isRandomSelection)
         {
              RandomPick();
@@ -23,6 +25,7 @@ public class RoomVarianteGestion : MonoBehaviour
     
     public void UpdateRoom(int index)
     {
+        isRandomSelection = false;
         SetVariant(index);
     }
 
@@ -42,9 +45,10 @@ public class RoomVarianteGestion : MonoBehaviour
     }
     void SetVariant(int index)
     {
-        isRandomSelection = false;
+        
         variants[section].gameObject.SetActive(false);
         section = index;
+
         variants[section].gameObject.SetActive(true);
 
         #region Instansiate 
