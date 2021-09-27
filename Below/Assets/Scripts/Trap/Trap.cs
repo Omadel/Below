@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class Trap : Switchable {
+public abstract class Trap : Switchable  {
     [SerializeField] public TrapParameter parameters;
     private Coroutine coroutine;
 
@@ -17,10 +17,10 @@ public abstract class Trap : Switchable {
     protected IEnumerator Sequence() {
         if(parameters.Loop) {
             while(true) {
-                yield return new WaitForSeconds(parameters.TimeInBetweenLoops);
                 TurnOn();
-                yield return new WaitForSeconds(parameters.AnimationDuration);
+                yield return new WaitForSeconds(Mathf.Max(parameters.TimeInBetweenLoops, parameters.AnimationDuration + parameters.TimeInBetweenLoops));
                 TurnOff();
+                yield return new WaitForSeconds(Mathf.Max(parameters.TimeInBetweenLoops, parameters.AnimationDuration + parameters.TimeInBetweenLoops));
             }
         } else {
             yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
@@ -31,20 +31,22 @@ public abstract class Trap : Switchable {
 
     public override void TurnOn() {
         if(IsOff) {
-            StartCoroutine(WaitToTurnOn());
+            OnStartTransitioning?.Invoke();
+            TweenAnimationOn();
+            //StartCoroutine(WaitToTurnOn());
         }
     }
 
     public override void TurnOff() {
         if(IsOn) {
-            StartCoroutine(WaitToTurnOff());
+            OnStartTransitioning?.Invoke();
+            TweenAnimationOff();
+            //StartCoroutine(WaitToTurnOff());
         }
     }
 
     private IEnumerator WaitToTurnOn() {
-        OnStartTransitioning?.Invoke();
         yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
-        TweenAnimationOn();
     }
 
     protected abstract void TweenAnimationOn();
@@ -52,8 +54,6 @@ public abstract class Trap : Switchable {
     protected abstract void TweenAnimationOff();
 
     private IEnumerator WaitToTurnOff() {
-        OnStartTransitioning?.Invoke();
         yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
-        TweenAnimationOn();
     }
 }
