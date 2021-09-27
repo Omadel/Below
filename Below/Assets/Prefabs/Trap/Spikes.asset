@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   spikeType: 0
-  loop: 0
-  animationDuration: 0.4
+  loop: 1
+  animationDuration: 0.25
   timeBeforeTurningOn: 0
-  timeInBetweenLoops: 1
+  timeInBetweenLoops: 0
   ease:
     serializedVersion: 2
     m_Curve:

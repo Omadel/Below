@@ -1658,6 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 11400000, guid: f8d2b976738b7564e86bcfa6e8db3bec, type: 2}
+  maxAngle: 45
 --- !u!1001 &1757400627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1668,6 +1669,10 @@ PrefabInstance:
     - target: {fileID: 9008637915776982892, guid: e6114c0c00c6a4a4fa13ede2fb14b85d, type: 3}
       propertyPath: m_Name
       value: Prefab_Spike Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008637915776982892, guid: e6114c0c00c6a4a4fa13ede2fb14b85d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9008637915776982893, guid: e6114c0c00c6a4a4fa13ede2fb14b85d, type: 3}
       propertyPath: m_RootOrder
@@ -1713,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9069325771228074249, guid: e6114c0c00c6a4a4fa13ede2fb14b85d, type: 3}
+      propertyPath: parameters
+      value: 
+      objectReference: {fileID: 11400000, guid: 508028572dd847443a7ee51e09148f14, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6114c0c00c6a4a4fa13ede2fb14b85d, type: 3}
 --- !u!1001 &6177784172474803877

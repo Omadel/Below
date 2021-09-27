@@ -5,10 +5,7 @@ using UnityEditor;
 
 
 [CreateAssetMenu(fileName = "AxeParameter", menuName = "Trap/Axe parameter")]
-public class AxeParameter : TrapParameter
-{
-    public int dommage = 5;
-    public float initialSpeed = 1;
-    public bool oneTimeSwing = false;
-    public float timeBeforeActivation =0;
+public class AxeParameter : TrapParameter {
+    public float MaxAngle => maxAngle;
+    [SerializeField] private float maxAngle;
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   damage: 5
   spikeType: 0
   loop: 1
-  animationDuration: 1
+  animationDuration: 0.3
   timeBeforeTurningOn: 0
   timeInBetweenLoops: 1
   ease:
@@ -33,11 +33,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0.017204868
+      outSlope: 0.017204868
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.34166664
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
