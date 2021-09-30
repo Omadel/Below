@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &794461730881382426
 Transform:
@@ -48,7 +48,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3609067009290901877
 Transform:
@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7665403628670210132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0019, y: 0.1254, z: -0.0004}
+  m_LocalPosition: {x: 0.0019, y: 0.0927, z: -0.0004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 794461730881382426}
@@ -303,9 +303,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle_01_a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c31599e233d1ef74581931fe2b9a75f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: c31599e233d1ef74581931fe2b9a75f8, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
       value: 0.09852522
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c31599e233d1ef74581931fe2b9a75f8, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.0025430839
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065472608157910053, guid: c31599e233d1ef74581931fe2b9a75f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282721979372247820, guid: c31599e233d1ef74581931fe2b9a75f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c31599e233d1ef74581931fe2b9a75f8, type: 3}
