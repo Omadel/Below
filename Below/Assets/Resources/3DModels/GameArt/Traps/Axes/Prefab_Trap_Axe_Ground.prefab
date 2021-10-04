@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 1230757160774053173}
   - component: {fileID: 2790926136135885456}
   - component: {fileID: 98986563327448666}
-  - component: {fileID: 330043473528393758}
   m_Layer: 0
-  m_Name: Prefab_Trap_Axe_Wall
+  m_Name: Prefab_Trap_Axe_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,25 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &330043473528393758
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900333987474503567}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 80383fed32f5c2f4a88cbaea02bc3183, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6579887220290121822
 PrefabInstance:
   m_ObjectHideFlags: 0

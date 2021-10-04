@@ -9,6 +9,6 @@ public class AxeDamager : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         Debug.Log("Collide <color=red>!</color>");
-        axeTrap.Collide(collision);
+        //axeTrap.Collide(collision);
     }
 }
