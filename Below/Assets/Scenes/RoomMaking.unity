@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5.1523285, g: 3.8427696, b: 2.404892, a: 1}
+  m_IndirectSpecularColor: {r: 5.1521378, g: 3.8417587, b: 2.4051094, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -637,7 +637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791638021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.645, y: 0.778, z: -6.666}
+  m_LocalPosition: {x: 1.73, y: 0.76, z: -6.558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1283542853}
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 985.71423
+  m_Intensity: 1164.9576
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -777,7 +777,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 78.44064
+  m_Intensity: 92.704384
   m_Range: 2.65
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -820,7 +820,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 8546
+  m_ColorTemperature: 20000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -1245,7 +1245,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 8546
+  m_ColorTemperature: 9513
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -1259,6 +1259,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 206156482812067489, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
+      propertyPath: m_Intensity
+      value: 571.49677
+      objectReference: {fileID: 0}
     - target: {fileID: 305724967462606267, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -1343,6 +1347,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 1810331968d81b64b8c0fc71f8d52851, type: 2}
+    - target: {fileID: 5027248847615982956, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
+      propertyPath: m_Intensity
+      value: 7181.6406
+      objectReference: {fileID: 0}
     - target: {fileID: 5155554092391165805, guid: 0ed02ab1f92b9df4d8c63bc3bd1e3b85, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -1888,7 +1896,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 12369
+  m_ColorTemperature: 9513
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
