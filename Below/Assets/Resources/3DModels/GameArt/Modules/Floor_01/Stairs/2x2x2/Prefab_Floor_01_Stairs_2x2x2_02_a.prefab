@@ -13,7 +13,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7401697544351217409, guid: 4622c1037153a75439172a00d16406cc, type: 3}
+  m_Mesh: {fileID: 4623486600073079771, guid: 4622c1037153a75439172a00d16406cc, type: 3}
 --- !u!1 &8046103899411191176
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - component: {fileID: 658510833330237648}
   m_Layer: 0
-  m_Name: Prefab_Floor_01_Stairs_02_a
+  m_Name: Prefab_Floor_01_Stairs_2x2x2_02_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
