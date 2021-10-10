@@ -67,14 +67,15 @@ namespace CMF {
 
         //Climbing
         public bool IsClimbing => isClimbing;
-        [SerializeField] private bool isClimbing = false;
-        private float? baseGravity = null;
+        private bool isClimbing = false;
         public void SetClimbing(bool isClimbing) {
             if(isClimbing) baseGravity ??= gravity;
             gravity = isClimbing ? 0 : baseGravity.Value;
             this.isClimbing = isClimbing;
             currentControllerState = isClimbing ? ControllerState.Climbing : ControllerState.Grounded;
         }
+        private float? baseGravity = null;
+        [SerializeField] private float climbingSpeed = 1.2f;
 
         //Enum describing basic controller states; 
         public enum ControllerState {
@@ -113,7 +114,6 @@ namespace CMF {
         private void Update() {
             HandleJumpKeyInput();
             HandleSprintKey();
-            name = GetComponent<Rigidbody>().velocity.ToString();
         }
         private void HandleSprintKey() {
             bool wasSprinting = isSprinting;
@@ -240,7 +240,7 @@ namespace CMF {
             Vector3 _velocityDirection = _velocity;
 
             //Multiply (normalized) velocity with movement speed;
-            _velocity *= movementSpeed;
+            _velocity *= isClimbing ? climbingSpeed : movementSpeed;
 
             //If controller is not grounded, multiply movement velocity with 'airControl';
             if(!(currentControllerState == ControllerState.Grounded) && !isClimbing) {
