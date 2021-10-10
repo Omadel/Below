@@ -65,13 +65,25 @@ namespace CMF {
         [Tooltip("Whether to calculate and apply momentum relative to the controller's transform.")]
         public bool useLocalMomentum = false;
 
+        //Climbing
+        public bool IsClimbing => isClimbing;
+        [SerializeField] private bool isClimbing = false;
+        private float? baseGravity = null;
+        public void SetClimbing(bool isClimbing) {
+            if(isClimbing) baseGravity ??= gravity;
+            gravity = isClimbing ? 0 : baseGravity.Value;
+            this.isClimbing = isClimbing;
+            currentControllerState = isClimbing ? ControllerState.Climbing : ControllerState.Grounded;
+        }
+
         //Enum describing basic controller states; 
         public enum ControllerState {
             Grounded,
             Sliding,
             Falling,
             Rising,
-            Jumping
+            Jumping,
+            Climbing
         }
 
         protected ControllerState currentControllerState = ControllerState.Falling;
@@ -101,6 +113,7 @@ namespace CMF {
         private void Update() {
             HandleJumpKeyInput();
             HandleSprintKey();
+            name = GetComponent<Rigidbody>().velocity.ToString();
         }
         private void HandleSprintKey() {
             bool wasSprinting = isSprinting;
@@ -152,17 +165,21 @@ namespace CMF {
             //Calculate movement velocity;
             Vector3 _velocity = CalculateMovementVelocity();
 
+            Vector3 _worldMomentum = Vector3.zero;
             //If local momentum is used, transform momentum into world space first;
-            Vector3 _worldMomentum = momentum;
-            if(useLocalMomentum)
-                _worldMomentum = tr.localToWorldMatrix * momentum;
+            if(!isClimbing) {
+                _worldMomentum = momentum;
+                if(useLocalMomentum)
+                    _worldMomentum = tr.localToWorldMatrix * momentum;
 
-            //Add current momentum to velocity;
-            _velocity += _worldMomentum;
+                //Add current momentum to velocity;
+                _velocity += _worldMomentum;
+            }
 
             //If player is grounded or sliding on a slope, extend mover's sensor range;
             //This enables the player to walk up/down stairs and slopes without losing ground contact;
             mover.SetExtendSensorRange(IsGrounded());
+
 
             //Set mover velocity;		
             mover.SetVelocity(_velocity);
@@ -191,13 +208,20 @@ namespace CMF {
 
             //If no camera transform has been assigned, use the character's transform axes to calculate the movement direction;
             if(cameraTransform == null) {
+                if(isClimbing) {
+                }
                 _velocity += tr.right * characterInput.GetHorizontalMovementInput();
                 _velocity += tr.forward * characterInput.GetVerticalMovementInput();
+
             } else {
                 //If a camera transform has been assigned, use the assigned transform's axes for movement direction;
                 //Project movement direction so movement stays parallel to the ground;
-                _velocity += Vector3.ProjectOnPlane(cameraTransform.right, tr.up).normalized * characterInput.GetHorizontalMovementInput();
+                if(isClimbing) {
+                    _velocity += Vector3.up * characterInput.GetVerticalMovementInput();
+                }
                 _velocity += Vector3.ProjectOnPlane(cameraTransform.forward, tr.up).normalized * characterInput.GetVerticalMovementInput();
+
+                _velocity += Vector3.ProjectOnPlane(cameraTransform.right, tr.up).normalized * characterInput.GetHorizontalMovementInput();
             }
 
             //If necessary, clamp movement vector to magnitude of 1f;
@@ -219,8 +243,9 @@ namespace CMF {
             _velocity *= movementSpeed;
 
             //If controller is not grounded, multiply movement velocity with 'airControl';
-            if(!(currentControllerState == ControllerState.Grounded))
+            if(!(currentControllerState == ControllerState.Grounded) && !isClimbing) {
                 _velocity = _velocityDirection * movementSpeed * airControl;
+            }
 
             return _velocity;
         }
@@ -237,6 +262,10 @@ namespace CMF {
         //Determine current controller state based on current momentum and whether the controller is grounded (or not);
         //Handle state transitions;
         private ControllerState DetermineControllerState() {
+            if(currentControllerState == ControllerState.Climbing || isClimbing) {
+                return ControllerState.Climbing;
+            }
+
             //Check if vertical momentum is pointing upwards;
             bool _isRising = IsRisingOrFalling() && (VectorMath.GetDotProduct(GetMomentum(), tr.up) > 0f);
             //Check if controller is sliding;
@@ -527,7 +556,9 @@ namespace CMF {
 
         //Returns 'true' if controller is grounded (or sliding down a slope);
         public override bool IsGrounded() {
-            return (currentControllerState == ControllerState.Grounded || currentControllerState == ControllerState.Sliding);
+            return (currentControllerState == ControllerState.Grounded
+                || currentControllerState == ControllerState.Sliding)
+                && !(currentControllerState == ControllerState.Climbing);
         }
 
         //Returns 'true' if controller is sliding;

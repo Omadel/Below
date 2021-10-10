@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 
 public class Spikes : MonoBehaviour {
-    [SerializeField] private AnimationCurve animation;
+    [SerializeField] private new AnimationCurve animation;
 
     private GameObject spikes;
     private bool isBeingAnimated;
