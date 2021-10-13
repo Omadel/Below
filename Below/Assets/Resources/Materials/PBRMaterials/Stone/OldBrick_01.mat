@@ -171,14 +171,14 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _HeightAmplitude: 0.0677
-    - _HeightCenter: 0
-    - _HeightMapParametrization: 1
-    - _HeightMax: 1
-    - _HeightMin: -1
+    - _HeightAmplitude: 0.1844
+    - _HeightCenter: 0.4284165
+    - _HeightMapParametrization: 0
+    - _HeightMax: 10.54
+    - _HeightMin: -7.9
     - _HeightOffset: 0
     - _HeightPoMAmplitude: 2
-    - _HeightTessAmplitude: 6.77
+    - _HeightTessAmplitude: 20.32
     - _HeightTessCenter: 0
     - _InvTilingScale: 0.6666667
     - _Ior: 1.5

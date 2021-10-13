@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3497327918027341687}
   - component: {fileID: 6676918494875947964}
   - component: {fileID: 3578456323456696980}
+  - component: {fileID: 3236681430253565220}
   m_Layer: 0
   m_Name: Electricity_Device_01_Light
   m_TagString: Untagged
@@ -250,6 +251,18 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!114 &3236681430253565220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839884524887289887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c790eeb730cb6b4ca58627fc0c38724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &462561953203513710
 PrefabInstance:
   m_ObjectHideFlags: 0
