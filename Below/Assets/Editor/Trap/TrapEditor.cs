@@ -4,8 +4,8 @@ using UnityEditor;
 public class TrapEditor : EtienneEditor.Editor<Trap> {
     public override void OnInspectorGUI() {
         Editor.CreateEditor(Target, typeof(SwitchableEditor)).OnInspectorGUI();
-        if(Target.parameters != null) {
-            Editor.CreateEditor(Target.parameters).OnInspectorGUI();
+        if(Target.Parameters != null) {
+            Editor.CreateEditor(Target.Parameters).OnInspectorGUI();
         }
     }
 }

@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cf661112e26854bb90c286b360dfbf, type: 3}
-  m_Name: Spikes
+  m_Script: {fileID: 11500000, guid: 101aeab804d2fc24fa55fef1cc8e5e09, type: 3}
+  m_Name: TrapSequenceParameter
   m_EditorClassIdentifier: 
   damage: 5
-  spikeType: 0
   loop: 1
-  animationDuration: 0.25
-  timeBeforeTurningOn: 0
+  animationDuration: 0.3
+  timeBeforeTurningOn: 0.8
   timeBeforeTurningOff: 0
-  timeInBetweenLoops: 0
+  timeInBetweenLoops: 0.6
+  timeBetweenTraps: 0.4
   ease:
     serializedVersion: 2
     m_Curve:
@@ -34,12 +34,13 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8576333
-      outSlope: -0.8576333
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.13749999
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  maxAngle: 45

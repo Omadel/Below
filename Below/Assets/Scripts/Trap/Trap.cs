@@ -1,11 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class Trap : Switchable  {
-    [SerializeField] public TrapParameter parameters;
+public abstract class Trap : Switchable {
+    public TrapParameter Parameters => parameters;
+    [SerializeField] protected TrapParameter parameters;
     private Coroutine coroutine;
 
     private void OnEnable() {
+        if(parameters == null || parameters.SpikeType == SpikeType.Multiple) return;
+        StartSequence();
+    }
+
+    public void StartSequence() {
+        if(parameters == null) return;
         coroutine = StartCoroutine(Sequence());
     }
 
@@ -13,14 +20,17 @@ public abstract class Trap : Switchable  {
         StopCoroutine(coroutine);
     }
 
+    public void SetParameters(TrapParameter parameters) {
+        this.parameters = parameters;
+    }
 
     protected IEnumerator Sequence() {
         if(parameters.Loop) {
             while(true) {
                 TurnOn();
-                yield return new WaitForSeconds(Mathf.Max(parameters.TimeInBetweenLoops, parameters.AnimationDuration + parameters.TimeInBetweenLoops));
+                yield return new WaitForSeconds(Mathf.Max(parameters.TimeBeforeTurningOff, parameters.AnimationDuration + parameters.TimeBeforeTurningOff));
                 TurnOff();
-                yield return new WaitForSeconds(Mathf.Max(parameters.TimeInBetweenLoops, parameters.AnimationDuration + parameters.TimeInBetweenLoops));
+                yield return new WaitForSeconds(Mathf.Max(parameters.TimeBeforeTurningOn, parameters.AnimationDuration + parameters.TimeBeforeTurningOn));
             }
         } else {
             yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
@@ -33,7 +43,6 @@ public abstract class Trap : Switchable  {
         if(IsOff) {
             OnStartTransitioning?.Invoke();
             TweenAnimationOn();
-            //StartCoroutine(WaitToTurnOn());
         }
     }
 
@@ -41,19 +50,10 @@ public abstract class Trap : Switchable  {
         if(IsOn) {
             OnStartTransitioning?.Invoke();
             TweenAnimationOff();
-            //StartCoroutine(WaitToTurnOff());
         }
-    }
-
-    private IEnumerator WaitToTurnOn() {
-        yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
     }
 
     protected abstract void TweenAnimationOn();
 
     protected abstract void TweenAnimationOff();
-
-    private IEnumerator WaitToTurnOff() {
-        yield return new WaitForSeconds(parameters.TimeBeforeTurningOn);
-    }
 }

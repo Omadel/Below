@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37cf661112e26854bb90c286b360dfbf, type: 3}
-  m_Name: Spikes
+  m_Name: MultipleTraps
   m_EditorClassIdentifier: 
   damage: 5
   spikeType: 0
-  loop: 1
-  animationDuration: 0.25
+  loop: 0
+  animationDuration: 1
   timeBeforeTurningOn: 0
-  timeBeforeTurningOff: 0
-  timeInBetweenLoops: 0
+  timeInBetweenLoops: 1
   ease:
     serializedVersion: 2
     m_Curve:
@@ -34,11 +33,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.8576333
-      outSlope: -0.8576333
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.13749999
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

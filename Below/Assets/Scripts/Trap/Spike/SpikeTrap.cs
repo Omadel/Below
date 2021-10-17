@@ -8,14 +8,14 @@ public class SpikeTrap : Trap {
     }
 
     protected override void TweenAnimationOff() {
-        spikes.transform.DOMoveY(0, parameters.AnimationDuration)
-              .SetEase(parameters.Ease)
+        spikes.transform.DOMoveY(0, Parameters.AnimationDuration)
+              .SetEase(Parameters.Ease)
               .OnComplete(() => OnTurnOff?.Invoke());
     }
 
     protected override void TweenAnimationOn() {
-        spikes.transform.DOMoveY(1, parameters.AnimationDuration)
-             .SetEase(parameters.Ease)
+        spikes.transform.DOMoveY(1, Parameters.AnimationDuration)
+             .SetEase(Parameters.Ease)
              .OnComplete(() => OnTurnOn?.Invoke());
     }
 
