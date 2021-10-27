@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cf661112e26854bb90c286b360dfbf, type: 3}
   m_Name: Spikes
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 17
   spikeType: 0
   loop: 1
-  animationDuration: 0.25
+  animationDuration: 0.4
   timeBeforeTurningOn: 0
   timeBeforeTurningOff: 0
-  timeInBetweenLoops: 0
+  timeInBetweenLoops: 2
   ease:
     serializedVersion: 2
     m_Curve:

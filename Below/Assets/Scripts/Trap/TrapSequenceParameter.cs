@@ -21,5 +21,5 @@ public class TrapSequenceParameter : ScriptableObject {
         timeInBetweenLoops = 1f,
         timeBetweenTraps;
     [SerializeField] private AnimationCurve ease;
-    [SerializeField] private float maxAngle;
+    [SerializeField, Range(0, 89f)] private float maxAngle;
 }

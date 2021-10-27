@@ -9,14 +9,14 @@ public class AxeTrap : Trap {
         axe = transform.GetChild(0).gameObject;
     }
     protected override void TweenAnimationOn() {
-        axe.transform.DORotate(Vector3.forward * maxAngle, parameters.AnimationDuration)
-            .SetEase(parameters.Ease)
+        axe.transform.DOLocalRotate(Vector3.forward * maxAngle, Parameters.AnimationDuration)
+            .SetEase(Parameters.Ease)
             .OnComplete(() => OnTurnOn?.Invoke());
     }
 
     protected override void TweenAnimationOff() {
-        axe.transform.DORotate(Vector3.back * maxAngle, parameters.AnimationDuration)
-            .SetEase(parameters.Ease)
+        axe.transform.DOLocalRotate(Vector3.back * maxAngle, Parameters.AnimationDuration)
+            .SetEase(Parameters.Ease)
             .OnComplete(() => OnTurnOff?.Invoke());
     }
 }

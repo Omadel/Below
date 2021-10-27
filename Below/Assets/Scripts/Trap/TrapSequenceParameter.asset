@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   loop: 1
-  animationDuration: 0.3
-  timeBeforeTurningOn: 0.8
+  animationDuration: 2
+  timeBeforeTurningOn: 0
   timeBeforeTurningOff: 0
   timeInBetweenLoops: 0.6
-  timeBetweenTraps: 0.4
+  timeBetweenTraps: 0
   ease:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.25416666
+      value: 1.009434
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxAngle: 45
+  maxAngle: 89
