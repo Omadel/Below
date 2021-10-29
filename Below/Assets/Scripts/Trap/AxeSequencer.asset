@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cf661112e26854bb90c286b360dfbf, type: 3}
-  m_Name: Axe
+  m_Script: {fileID: 11500000, guid: 101aeab804d2fc24fa55fef1cc8e5e09, type: 3}
+  m_Name: AxeSequencer
   m_EditorClassIdentifier: 
   damage: 5
-  spikeType: 0
   loop: 1
-  animationDuration: 1.5
+  animationDuration: 1.6
   timeBeforeTurningOn: 0
   timeBeforeTurningOff: 0
-  timeInBetweenLoops: 0
+  timeInBetweenLoops: 0.3
+  timeBetweenTraps: 1.6
   ease:
     serializedVersion: 2
     m_Curve:
@@ -43,3 +43,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  maxAngle: 89

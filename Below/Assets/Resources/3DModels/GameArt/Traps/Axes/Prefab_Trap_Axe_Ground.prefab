@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1230757160774053173}
   - component: {fileID: 2790926136135885456}
   - component: {fileID: 98986563327448666}
+  - component: {fileID: 1451496096}
   m_Layer: 0
   m_Name: Prefab_Trap_Axe_Ground
   m_TagString: Untagged
@@ -82,6 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1451496096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900333987474503567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cb22751dbf8d04dacd1c592d13227f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 0}
+  maxAngle: 45
 --- !u!65 &4295804133940794095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133,11 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9998169
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_LocalRotation.y
@@ -145,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.019138651
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -157,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -2.193
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
       propertyPath: m_Materials.Array.data[0]
