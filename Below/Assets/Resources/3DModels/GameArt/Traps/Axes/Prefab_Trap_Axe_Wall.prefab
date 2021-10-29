@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7046202945698658860}
   - component: {fileID: 6225944642368763273}
   - component: {fileID: 8179109646551875907}
+  - component: {fileID: 1389008646865373857}
+  - component: {fileID: 108757605}
   m_Layer: 0
   m_Name: Prefab_Trap_Axe_Wall
   m_TagString: Untagged
@@ -82,6 +84,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &1389008646865373857
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7674965630195179670}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -1.384506, y: 1.437343, z: -1.0001117}
+  m_Size: 2.7016127
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.16960491
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8179109646551875907}
+    - renderer: {fileID: 7078710240154970550}
+  - screenRelativeHeight: 0.13557845
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 0}
+    - renderer: {fileID: 0}
+  - screenRelativeHeight: 0.100082524
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 0}
+    - renderer: {fileID: 0}
+  m_Enabled: 1
+--- !u!114 &108757605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7674965630195179670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cb22751dbf8d04dacd1c592d13227f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 0}
+  maxAngle: 45
 --- !u!64 &8440803596576454145
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -165,5 +211,10 @@ GameObject:
 --- !u!4 &8248217003169714905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
+  m_PrefabInstance: {fileID: 8502009759484474674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7078710240154970550 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 2c6f10c748a76a2429dfbb2a803bfcd3, type: 3}
   m_PrefabInstance: {fileID: 8502009759484474674}
   m_PrefabAsset: {fileID: 0}
