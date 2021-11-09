@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4672654348276071984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.655, z: 0}
+  m_LocalPosition: {x: 0, y: 0.565, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8651576550570189430}
@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194708273797187302}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 0.002, y: 0.393, z: -0.012}
+  m_LocalPosition: {x: 0.002, y: 0.563, z: -0.012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9194708274078613470}
@@ -527,10 +527,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d8d534babab7b344c823b70c78c5e5d2, type: 2}
+    - target: {fileID: -7271529959365731920, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e492cc3a68d873942b7624aa55bea06c, type: 2}
     - target: {fileID: -6902573867230041995, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec876e35e46bbc24fa1191457e4e448b, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: -3872669692855799299, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8d534babab7b344c823b70c78c5e5d2, type: 2}
+    - target: {fileID: 425057870814591268, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bcbd2e9a2137bb4d914eb3f9fef0d2d, type: 2}
     - target: {fileID: 919132149155446097, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
       propertyPath: m_Name
       value: Brasero_01
@@ -539,14 +551,22 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2105815486847528095, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6512510688612296998, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7644508481738655161, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73b1b3ab2720a3a42827b2509edb2035, type: 2}
     - target: {fileID: 8089062573417005363, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec876e35e46bbc24fa1191457e4e448b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8700725330082129686, guid: 80a0064cf345cdb49b4e1182fc3b3e02, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
