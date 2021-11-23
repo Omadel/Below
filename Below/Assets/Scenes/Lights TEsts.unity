@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 68.254395, g: 48.21118, b: 48.08087, a: 1}
+  m_IndirectSpecularColor: {r: 68.254395, g: 48.211548, b: 48.081482, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3931,6 +3931,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: maxHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: staminaGain
       value: 30
       objectReference: {fileID: 0}
@@ -3938,8 +3942,40 @@ PrefabInstance:
       propertyPath: staminaUsage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: hurtForceMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210559315, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1330376417, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785476299632581894, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785476299632581894, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785476299632644338, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785476299632644338, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785476299632644338, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785476299632644338, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4772059026041742378, guid: 17925d0302c24a94cb99740e43540714, type: 3}
@@ -3968,7 +4004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796587239710559631, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: m_Intensity
-      value: 25.066902
+      value: 2.8943722
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192282673798338555, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: deathAnimtaionTime
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 6066004132385676993, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: gravity

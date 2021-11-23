@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿using Etienne;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 internal class Damager : MonoBehaviour {
     [SerializeField] private int damage;
-
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")) {
             PlayerStats playerstats = other.gameObject.GetComponent<PlayerStats>();
-            playerstats.LooseLife(damage);
+            playerstats.LooseLife(damage, other.transform.position.Direction(playerstats.transform.position).normalized);
         }
     }
 }

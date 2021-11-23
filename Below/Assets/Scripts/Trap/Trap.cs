@@ -17,12 +17,10 @@ public abstract class Trap : Switchable {
     }
 
     private void OnDisable() {
-        StopCoroutine(coroutine);
+        if(coroutine != null) StopCoroutine(coroutine);
     }
 
-    public void SetParameters(TrapParameter parameters) {
-        this.parameters = parameters;
-    }
+    public void SetParameters(TrapParameter parameters) => this.parameters = parameters;
 
     protected IEnumerator Sequence() {
         if(parameters.Loop) {

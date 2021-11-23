@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "58201fdb66a5943bf9886dc6e48a808a1f3b94ae"
+      "hash": "93279cb84f46c70481ebbf5600514382f8148bfc"
     },
     "com.unity.cinemachine": {
       "version": "2.6.5",
@@ -38,7 +38,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.11",
+      "version": "2.0.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {
