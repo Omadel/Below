@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8351135621403321155}
   - component: {fileID: 4921002883317771494}
   - component: {fileID: 7182710639314655276}
+  - component: {fileID: 1382843707164520252}
   m_Layer: 0
   m_Name: Prefab_WoodCage_01a
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1382843707164520252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696135549899733497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.40726268, y: 0.18706167, z: 0.6264723}
+  m_Center: {x: -0.2036314, y: 0.09353083, z: -0.3132362}
