@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 6773953120197114294}
   - component: {fileID: 6796275475074251100}
   m_Layer: 0
-  m_Name: 5x7 SB 4 Doors Atelier_3 (1)
+  m_Name: 5x7 SB 4 Doors Atelier_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,20 +124,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1859888795350033156, guid: 9c2ebf4a8bf933f44989034663e977ee, type: 3}
---- !u!64 &4357514967218170636
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6441758868268371955}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5734002752270816157, guid: e2eef20d0d0065f4e80b28b7b9f4c07e, type: 3}
 --- !u!64 &8574151838141566612
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -145,6 +131,20 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885604164729102718}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5734002752270816157, guid: e2eef20d0d0065f4e80b28b7b9f4c07e, type: 3}
+--- !u!64 &4357514967218170636
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441758868268371955}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
