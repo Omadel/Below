@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 68.254395, g: 48.211548, b: 48.081482, a: 1}
+  m_IndirectSpecularColor: {r: 65.79895, g: 47.739807, b: 51.82245, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3933,6 +3933,10 @@ PrefabInstance:
     - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: maxHP
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
+      propertyPath: maxStamina
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1152385948, guid: 17925d0302c24a94cb99740e43540714, type: 3}
       propertyPath: staminaGain

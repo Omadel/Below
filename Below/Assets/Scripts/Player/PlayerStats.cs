@@ -1,23 +1,22 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour {
-    public bool CanSprint => currentStamina > 0;
+    public bool CanSprint => currentStamina > 0 && canSprint;
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
     public float MaxStamina => maxStamina;
     public float CurrentStamina => currentStamina;
 
-    [SerializeField] private InputAction debugLooseLife, debugGainLife;
     [SerializeField] private CMF.AdvancedWalkerController playerWalker;
     [SerializeField] private int maxHP = 100, maxStamina = 100;
-    [SerializeField] private float staminaGain = 2f, staminaUsage = 1f, invincibilityTimer = 1f;
+    [SerializeField] private float staminaGain = 2f, staminaUsage = 1f, staminaRecoverRate = .5f, invincibilityTimer = 1f;
+    [SerializeField, Range(0, 1)] private float staminaRecoveredPercent = .5f;
     [SerializeField] private UIHandeler uIHandeler;
 
     private float currentHP, currentStamina;
     private bool isInvincible = false;
-    private bool loseStamina;
+    private bool loseStamina, canSprint = true;
 
     private void Awake() {
         playerWalker ??= GetComponent<CMF.AdvancedWalkerController>();
@@ -31,12 +30,6 @@ public class PlayerStats : MonoBehaviour {
         StartCoroutine(HandleStamina());
     }
 
-    private void Update() {
-        if(!CanSprint) {
-            //todo recuperation
-        }
-    }
-
     private IEnumerator HandleStamina() {
         currentStamina = maxStamina;
 
@@ -44,11 +37,20 @@ public class PlayerStats : MonoBehaviour {
             yield return new WaitForSeconds(.1f);
             if(loseStamina) currentStamina -= staminaUsage * .1f;
             else currentStamina += staminaGain * .1f;
+            if(currentStamina < 0) StartCoroutine(nameof(RecoverStamina));
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
             uIHandeler.UpdateStamina();
         }
     }
 
+    public IEnumerator RecoverStamina() {
+        canSprint = false;
+        while(currentStamina < maxStamina * .5f) {
+            yield return new WaitForEndOfFrame();
+            currentStamina += staminaRecoverRate * Time.deltaTime;
+        }
+        canSprint = true;
+    }
 
 
     public void LooseLife(int amount, Vector3 direction) {
