@@ -45,7 +45,7 @@ public class PlayerStats : MonoBehaviour {
 
     public IEnumerator RecoverStamina() {
         canSprint = false;
-        while(currentStamina < maxStamina * .5f) {
+        while(currentStamina < maxStamina * staminaRecoveredPercent) {
             yield return new WaitForEndOfFrame();
             currentStamina += staminaRecoverRate * Time.deltaTime;
         }
