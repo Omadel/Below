@@ -147,6 +147,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PlayerInputs",
+            "id": "4cfe1128-2fb9-434e-bc28-5f062404b7d8",
+            "actions": [
+                {
+                    "name": "Drink",
+                    "type": "Button",
+                    "id": "dca48fb1-abbe-41de-8dde-7aaf56d7e1eb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "58362107-31f5-4813-90a7-750a4a79b577",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drink",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -10,6 +10,7 @@ public class TrapParameter : ScriptableObject {
     public float TimeBeforeTurningOff => timeBeforeTurningOff;
     public float TimeInBetweenLoops => timeInBetweenLoops;
     public AnimationCurve Ease => ease;
+    public float MaxAngle => maxAngle;
 
     [SerializeField, Min(0)] private int damage = 5;
     [SerializeField] private SpikeType spikeType;
@@ -20,6 +21,7 @@ public class TrapParameter : ScriptableObject {
         timeBeforeTurningOff = 0f,
         timeInBetweenLoops = 1f;
     [SerializeField] private AnimationCurve ease;
+    [SerializeField, Range(0,89)] private float maxAngle;
 
     public virtual void Initialize(TrapSequenceParameter sequence) {
         damage = sequence.Damage;
@@ -30,6 +32,7 @@ public class TrapParameter : ScriptableObject {
         timeBeforeTurningOff = sequence.TimeBeforeTurningOff;
         timeInBetweenLoops = sequence.TimeInBetweenLoops;
         ease = sequence.Ease;
+        maxAngle = sequence.MaxAngle;
     }
 
     public void SetLoop(bool loop) {

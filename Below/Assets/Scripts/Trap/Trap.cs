@@ -6,6 +6,11 @@ public abstract class Trap : Switchable {
     [SerializeField] protected TrapParameter parameters;
     private Coroutine coroutine;
 
+    protected override void Start() {
+        base.Start();
+        GetComponentInChildren<Damager>()?.SetDamage(parameters.Damage);
+    }
+
     private void OnEnable() {
         if(parameters == null || parameters.SpikeType == SpikeType.Multiple) return;
         StartSequence();
