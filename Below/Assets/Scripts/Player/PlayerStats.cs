@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,12 +18,27 @@ public class PlayerStats : MonoBehaviour {
     private float currentHP, currentStamina;
     private bool isInvincible = false;
     private bool loseStamina, canSprint = true;
+    Animator animator;
+    ModelHandeler modelHandeler;
 
     private void Awake() {
         playerWalker ??= GetComponent<CMF.AdvancedWalkerController>();
         playerWalker.StartSprinting += () => loseStamina = true;
         playerWalker.StopSprinting += () => loseStamina = false;
-        uIHandeler ??= GetComponentInChildren<UIHandeler>();
+        uIHandeler ??=GetComponentInChildren<UIHandeler>();
+        animator = GetComponentInChildren<Animator>();
+        GetComponent<CMF.CharacterGlobalInput>().OnDrink += ToggleDrink;
+        modelHandeler = GetComponentInChildren<ModelHandeler>();
+        modelHandeler.OnDrink += Drink;
+    }
+
+    private void ToggleDrink() {
+        animator.SetBool("Drink", !animator.GetBool("Drink"));
+    }
+
+    public void Drink() {
+        currentHP = maxHP;
+        uIHandeler.UpdateHP();
     }
 
     private void Start() {
