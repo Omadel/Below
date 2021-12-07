@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101aeab804d2fc24fa55fef1cc8e5e09, type: 3}
   m_Name: AxeSequencer
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 2
   loop: 1
   animationDuration: 1.6
   timeBeforeTurningOn: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxAngle: 89
+  maxAngle: 62
